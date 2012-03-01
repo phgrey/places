@@ -5,7 +5,7 @@ p.no-margin
   i.icon-user
   = link_to @offer.user.name, @offer.user
 hr.no-margin
--if current_user.id == @offer.user_id
+-if user_signed_in? && current_user.id == @offer.user_id
   .pull-right
     = link_to '', edit_offer_path(@offer), :class => 'icon-edit'
 p= link_to @offer.description, offer_path(@offer)

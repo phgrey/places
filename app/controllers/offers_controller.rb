@@ -6,9 +6,7 @@ class OffersController < ApplicationController
   before_filter :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy]
   before_filter :get_offer_check_owner, :only => [:edit, :update, :destroy]
 
-  #after_filter :add_pager, :only => [:index, :tag, :search]
-
-
+  before_filter :add_pager, :only => [:index, :tag]
 
   def get_offer
     @offer = Offer.find(params[:id])
@@ -24,29 +22,37 @@ class OffersController < ApplicationController
   end
 
   def add_pager
-    @offers = @offers.page(params[:page])
+    @offers = Offer.page(params[:page])
   end
   
   # GET /offers
   # GET /offers.json
   def index
-    @offers = Offer.page(params[:page])
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @offers }
     end
   end
 
-  #def tag
-  #  add_crumb params[:name], tag_offers_path(params[:name])
-  #  @offers = Offer.page(params[:page]).tagged_with(params[:tag_id])
-  #  @tname = params[:name]
-  #end
+  def tag
+    @tname = params[:tag]
+    add_crumb @tname, tag_offers_path(@tname)
+    @offers = @offers.tagged_with(@tname)
+    respond_to do |format|
+      format.html
+      format.json { render :json => @offers }
+    end
+  end
 
 
   def search
-    @offers = Offer.page(params[:page])
+    if(params[:s])
+      redirect_to search_offers_path(params[:s])
+    end
+
+    @search = params[:search]
+    add_crumb @search, search_offers_path(:search => @search)
+    @offers = Offer.search(@search, :page => params[:page], :per_page=>Offer.per_page)
   end
   # GET /offers/1
   # GET /offers/1.json

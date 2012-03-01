@@ -25,12 +25,10 @@ html lang="en"
             span.icon-bar
             span.icon-bar
             span.icon-bar
-
           a.brand href="/" CoworkersMy
-
           .container-fluid.nav-collapse
-            form.navbar-search.pull-left action=offers_path
-              input.search-query.span4 type="text" placeholder="Search"
+            form.navbar-search.pull-left action=search_offers_path
+              input.search-query.span4 type="text" placeholder="Search" name="s" value=@search
             ul.nav.pull-right
               li= link_to "Offers", offers_path
               li= link_to "Users", users_path

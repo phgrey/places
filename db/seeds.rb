@@ -19,3 +19,17 @@
 #      {:description => 'first random offer', :hours => 3, :user => User.last, :tags => Tag.where('name in ("js", "php")')},
 #      {:description => 'second random offer', :hours => 8, :user => User.first, :tags => Tag.where('name in ("js", "ruby")')}
 #])
+
+#list = %w[tag1, tag2, python, django, rails, highload]
+#list.each do |tag|
+#  tag2 = ActsAsTaggableOn::Tag.new(:name => tag).save
+#  offers = Offer.order('RAND()').limit(10)
+#  offers.each {|offer|
+#    offer.tag_list+= [tag]
+#    offer.save
+#  }
+#end
+
+
+
+

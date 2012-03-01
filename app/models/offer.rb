@@ -5,4 +5,12 @@ class Offer < ActiveRecord::Base
   #has_and_belongs_to_many :tags, :uniq => true
   acts_as_taggable
   self.per_page = 30
+
+  define_index do
+    indexes description
+    indexes user.name, :as => :user, :sortable => true
+    indexes taggings.tag.name, :as => :tags
+
+    has user_id, created_at, updated_at
+  end
 end

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '>= 3.2.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -55,6 +55,8 @@ gem 'acts-as-taggable-on'
 #gem 'time_diff'
 
 gem 'will_paginate'
+
+gem 'thinking-sphinx', '>= 2.0.10'
 
 # To use debugger
 # gem 'ruby-debug'
