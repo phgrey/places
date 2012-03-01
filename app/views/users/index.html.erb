@@ -1,0 +1,26 @@
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Offers</th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.offers.count %></td>
+    <td><%= link_to 'Show', user %></td>
+  </tr>
+  <% if(user.offers.count > 0) %>
+    <tr>
+      <td colspan="7">
+        <%= user.offers.last.description %>
+      </td>
+    </tr>    
+  <% end %>
+<% end %>
+</table>

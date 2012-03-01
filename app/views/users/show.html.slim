@@ -1,0 +1,6 @@
+h2
+  'user:
+  = @user.name
+- @offers = @user.offers
+- if(@offers.count > 0)
+  = render 'offers/list'
