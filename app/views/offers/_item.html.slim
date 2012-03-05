@@ -12,7 +12,8 @@ p= link_to @offer.description, offer_path(@offer)
 -if(@offer.tags.count > 0)
   p.no-margin
     span.small.pull-right
-      = @offer.created_at ? @offer.created_at.strftime('%d.%m.%Y') : ''
+      /= @offer.created_at ? l(@offer.created_at, {:format => :short}) : ''
+      = time_ago_in_words(@offer.created_safe)+t(:ago)
     i.icon-tags
     -@offer.tags.each do |tag|
       '

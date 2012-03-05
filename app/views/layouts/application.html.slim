@@ -28,11 +28,11 @@ html lang="en"
           a.brand href="/" CoworkersMy
           .container-fluid.nav-collapse
             form.navbar-search.pull-left action=search_offers_path
-              input.search-query.span4 type="text" placeholder="Search" name="s" value=@search
+              input.search-query.span4 type="text" placeholder=t(:Search) name="s" value=@search
             ul.nav.pull-right
-              li= link_to "Offers", offers_path
-              li= link_to "Users", users_path
-              li= link_to "Tags", tags_path
+              li= link_to t("Offers"), offers_path
+              li= link_to t("Users"), users_path
+              li= link_to t("Tags"), tags_path
               li.divider-vertical
               li.dropdown
                 a.dropdown-toggle{style="cursor: pointer;" data-toggle="dropdown"}
@@ -63,6 +63,8 @@ html lang="en"
                     i.icon-home
                     '
                     |Main page
+              li.lang =link_to_unless_current 'en', {:locale => :en}
+              li.lang =link_to_unless_current 'ru', {:locale => :ru}
     .container-fluid
       .row-fluid
         .span3
@@ -73,15 +75,18 @@ html lang="en"
               li= link_to "Link 2", "/path2"
               li= link_to "Link 3", "/path3"
         .span9
-          == render_crumbs
-          - if(notice)
-            .alert.alert-success= notice
-          - if(alert)
-            .alert.alert-error= alert
+          .row-fluid
+            .pull-right
+              - if(!notice)
+                -notice='Ololol'
+              .alert.alert-success.no-margin= notice
+              - if(alert)
+                .alert.alert-error= alert
+            .pull-left.alert.no-margin
+              == render_crumbs
           = yield
       hr
       footer
         p &copy; Company 2012
     / Placed at the end of the document so the pages load faster
     = javascript_include_tag "application"
-

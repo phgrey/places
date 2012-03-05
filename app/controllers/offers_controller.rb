@@ -1,12 +1,14 @@
 class OffersController < ApplicationController
-
-  add_crumb "Home", '/'
-  add_crumb "Offers", :offers_path
-
   before_filter :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy]
   before_filter :get_offer_check_owner, :only => [:edit, :update, :destroy]
-
   before_filter :add_pager, :only => [:index, :tag]
+
+  before_filter :set_crumb
+
+  def set_crumb
+    add_crumb I18n.t("Offers"), offers_path
+  end
+
 
   def get_offer
     @offer = Offer.find(params[:id])
@@ -36,7 +38,7 @@ class OffersController < ApplicationController
 
   def tag
     @tname = params[:tag]
-    add_crumb @tname, tag_offers_path(@tname)
+    add_crumb I18n.t(:Tag_w_name, :name => @tname), tag_offers_path(@tname)
     @offers = @offers.tagged_with(@tname)
     respond_to do |format|
       format.html
@@ -51,7 +53,7 @@ class OffersController < ApplicationController
     end
 
     @search = params[:search]
-    add_crumb @search, search_offers_path(:search => @search)
+    add_crumb  I18n.t(:Search_w_name, :name => @search), search_offers_path(:search => @search)
     @offers = Offer.search(@search, :page => params[:page], :per_page=>Offer.per_page)
   end
   # GET /offers/1

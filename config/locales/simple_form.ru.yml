@@ -1,0 +1,32 @@
+ru:
+  simple_form:
+    "yes": 'Да'
+    "no": 'Нет'
+    required:
+      text: 'обязательное поле'
+      mark: '*'
+    buttons:
+      create: 'Создать {{model}}'
+      update: 'Изменить {{model}}'
+      submit: 'Сохранить {{model}}'
+      cancel: 'Отмена'
+      or: 'или'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: 'Были обнаружены ошибки:'
+#    Labels and hints examples
+    labels:
+       password: 'Пароль'
+       user:
+         new:
+           email: 'E-mail'
+         edit:
+           email: 'E-mail'
+    hints:
+      defaults:
+       description: 'Укажите что вы хотите сделать'
+       hours: 'Сколько часов вы готовы потратить'
+       tag_list: 'Список тэгов, разделенный ","'
+

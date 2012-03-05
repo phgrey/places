@@ -1,27 +1,30 @@
 CoworkersMy::Application.routes.draw do
-  devise_for :users, :sign_out_via => [ :get ]
-  resources :users, :only => [:index, :show]
+  resources :test, :only => [:index, :show]
 
-  #match "offers?s=:search" => redirect {|params| "/offers/search/#{params[search]}"}
-  #post "offers*other" => redirect {|params| "/offers/search/#{params[:s]}"}
-  #match "/tags/(:tag)" => redirect("/offers/%{tag}")
+  scope "(:locale)", :locale => /en|ru/ do
+    devise_for :users, :sign_out_via => [ :get ]
+    resources :users, :only => [:index, :show]
 
-  resources :offers do
-    collection do
-      #get 'search'
-      get 'search/(:search)' => 'offers#search', :as => 'search'
-      get 'tag/:tag' => 'offers#tag', :as => 'tag'
+    #match "offers?s=:search" => redirect {|params| "/offers/search/#{params[search]}"}
+    #post "offers*other" => redirect {|params| "/offers/search/#{params[:s]}"}
+    #match "/tags/(:tag)" => redirect("/offers/%{tag}")
+
+    resources :offers do
+      collection do
+        #get 'search'
+        get 'search/(:search)' => 'offers#search', :as => 'search'
+        get 'tag/:tag' => 'offers#tag', :as => 'tag'
+      end
     end
+
+
+    resources :tags, :only => :index do
+      #resources :offers, :only => :index, :action => :tag
+      #resources :tasks
+
+    end
+    root :to => 'offers#index'
   end
-
-
-  resources :tags, :only => :index do
-    #resources :offers, :only => :index, :action => :tag
-    #resources :tasks
-
-  end
-
-  root :to => 'offers#index'
 
 
   # http://guides.rubyonrails.org/routing.html

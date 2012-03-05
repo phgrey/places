@@ -55,8 +55,10 @@ gem 'acts-as-taggable-on'
 #gem 'time_diff'
 
 gem 'will_paginate'
+#gem 'handlersocket'
 
 gem 'thinking-sphinx', '>= 2.0.10'
 
+gem 'russian'
 # To use debugger
 # gem 'ruby-debug'

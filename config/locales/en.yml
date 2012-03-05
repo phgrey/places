@@ -3,3 +3,22 @@
 
 en:
   hello: "Hello world"
+  Offers: "Offers"
+  Users: "Users"
+  Tags: "Tags"
+  Home: "Home"
+  Search: "Search"
+  Tag_w_name: 'Tag "%{name}"'
+  Search_w_name: 'Search "%{name}"'
+  ago: ' ago'
+  Cancel: 'Cancel'
+
+  activerecord:
+    models:
+      offer: Offer
+    attributes:
+      offer:
+        description: "Description"
+        hours: 'Hours'
+        tag_list: 'Tags'
+

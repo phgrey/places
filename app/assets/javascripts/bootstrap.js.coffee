@@ -1,9 +1,12 @@
-#jQuery ->
+#= require twitter/bootstrap/bootstrap-dropdown
+
+
+jQuery ->
+  $(".dropdown-toggle").dropdown()
 #  $(".alert-message").alert()
 #  $(".tabs").button()
 #  $(".carousel").carousel()
 #  $(".collapse").collapse()
-#  $(".dropdown-toggle").dropdown()
 #  $(".modal").modal()
 #  $("a[rel=popover]").popover()
 #  $(".navbar").scrollspy()
