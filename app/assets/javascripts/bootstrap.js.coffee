@@ -1,4 +1,5 @@
 #= require twitter/bootstrap/bootstrap-dropdown
+#= require twitter/bootstrap/bootstrap-tab
 
 
 jQuery ->

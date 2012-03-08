@@ -1,0 +1,7 @@
+= simple_form_for(@user, :html => {:class => 'form-horizontal' }) do |u|
+  = u.input :name
+  = u.input :email
+  = u.input :password
+  = u.fields_for :offers do |f|
+    = render 'fields'
+  = u.button :wrapped

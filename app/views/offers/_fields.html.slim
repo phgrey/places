@@ -1,0 +1,6 @@
+=field_set_tag nil, :class => 'make-me-tabs' do
+  = of.fields_for :texts do |t|
+    = t.input :text, :label=> t('simple_form.labels.text_lang', :lang => t.object.lang), :input_html => { :class=>'big-area' }
+    = t.hidden_field :lang
+= of.input :hours
+= of.input :tag_list

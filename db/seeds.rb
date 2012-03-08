@@ -30,6 +30,9 @@
 #  }
 #end
 
+#of = Offer.first
+#Text.create(:text => 'Here we are! This is our first localized offer!', :lang => 'en', :item_id => of.id)
+#Text.create(:text => 'Итак, вот наш первый мультиязычный оффер', :lang => 'ru', :item_id => of.id)
 
 
 

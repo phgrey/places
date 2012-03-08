@@ -2,8 +2,12 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 ru:
-  Offers: "Предложения"
+  Offers:
+    many: "Предложения"
+    new: Новое предложение
+  edit: редактирование
   Users: "Пользователи"
+  Guest: Гость
   Tags: "Тэги"
   Home: 'Главная'
   Search: "Поиск"
@@ -19,6 +23,11 @@ ru:
         description: "Описание"
         hours: 'Часы'
         tag_list: 'Тэги'
+      text:
+        text:  Описание
+    errors:
+      offer:
+        texts: 'Хотя бы одно описание должно быть заполнено'
 
 
 

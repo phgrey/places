@@ -24,9 +24,11 @@ ru:
            email: 'E-mail'
          edit:
            email: 'E-mail'
+       text_lang: 'Описание (%{lang})'
     hints:
       defaults:
        description: 'Укажите что вы хотите сделать'
+       text:  'Укажите, чем бы Вы хотели заняться'
        hours: 'Сколько часов вы готовы потратить'
-       tag_list: 'Список тэгов, разделенный ","'
+       tag_list: 'Список тэгов, через ","'
 

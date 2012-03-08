@@ -1,12 +1,12 @@
 class OffersController < ApplicationController
-  before_filter :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy]
+  before_filter :authenticate_user!, :only => [:edit, :create, :update, :destroy]
+  before_filter :set_crumb
   before_filter :get_offer_check_owner, :only => [:edit, :update, :destroy]
   before_filter :add_pager, :only => [:index, :tag]
 
-  before_filter :set_crumb
 
   def set_crumb
-    add_crumb I18n.t("Offers"), offers_path
+    add_crumb I18n.t("Offers.many"), offers_path
   end
 
 
@@ -70,18 +70,26 @@ class OffersController < ApplicationController
   # GET /offers/new
   # GET /offers/new.json
   def new
-    @offer = Offer.new
-    add_crumb('new', new_offer_path)
+    @offer = Offer.new_w_texts
+    #@offer.texts = [Text.new(:lang => 'ru'), Text.new(:lang => 'en')]
+    add_crumb( I18n.t('Offers.new'), new_offer_path)
+
 
     respond_to do |format|
-      format.html # new.html.erb
+      if(!user_signed_in?)
+        @user = User.new
+        @user.offers = [@offer]
+        format.html { render :action => "quick" }
+      else
+        format.html
+      end
       format.json { render :json => @offer }
     end
   end
 
   # GET /offers/1/edit
   def edit
-    add_crumb('edit', edit_offer_path(@offer))
+    add_crumb( I18n.t('edit'), edit_offer_path(@offer))
 
 
   end
@@ -89,6 +97,7 @@ class OffersController < ApplicationController
   # POST /offers
   # POST /offers.json
   def create
+    add_crumb( I18n.t('Offers.new'), new_offer_path)
     @offer = Offer.new(params[:offer])
     @offer.user = current_user
     respond_to do |format|
@@ -105,6 +114,7 @@ class OffersController < ApplicationController
   # PUT /offers/1
   # PUT /offers/1.json
   def update
+    add_crumb( I18n.t('edit'), edit_offer_path(@offer))
     respond_to do |format|
       if @offer.update_attributes(params[:offer])
         format.html { redirect_to @offer, :notice => 'Offer was successfully updated.' }

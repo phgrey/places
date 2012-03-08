@@ -11,14 +11,26 @@
 # GO AFTER THE REQUIRES BELOW.
 #
 #= require jquery
-#= require jquery_ujs
-#= require twitter/bootstrap
+# require jquery_ujs
+# require twitter/bootstrap
 #= require_tree .
 
 
 jQuery ->
-  $('.go-back').click ->
-    window.history.back()
   if $(window).width() > 768
     $('.masonry').masonry({itemSelector: '.span4'}).masonry 'reload'
+  $('fieldset.make-me-tabs').each (num)->
+    errs = $(@).find('.control-group').hide().filter('.error').length > 0
+    par=$('<div>', {class:'tabbable control-group'})
+      .append(ul=$('<ul>', {class:'nav nav-tabs'}))
+      .append(div=$('<div>', {class:'tab-content'}))
+    par.addClass('error') if errs
+    $(@).find('label').appendTo(ul).wrap('<li>').wrap('<a>').parent().each (i)->
+      $(@).attr({'data-toggle': 'tab', 'href':'#t'+num+'_'+i})
+    .parent().first().addClass('active')
+    $(@).find('.controls').appendTo(div).addClass('tab-pane').each (i)->
+      $(@).attr({'id':'t'+num+'_'+i})
+    .first().addClass('active')
+
+    par.appendTo(@).tab "show"
 

@@ -30,14 +30,14 @@ html lang="en"
             form.navbar-search.pull-left action=search_offers_path
               input.search-query.span4 type="text" placeholder=t(:Search) name="s" value=@search
             ul.nav.pull-right
-              li= link_to t("Offers"), offers_path
+              li= link_to t("Offers.many"), offers_path
               li= link_to t("Users"), users_path
               li= link_to t("Tags"), tags_path
               li.divider-vertical
               li.dropdown
                 a.dropdown-toggle{style="cursor: pointer;" data-toggle="dropdown"}
                   i.icon-user.icon-white
-                  = user_signed_in? ? current_user.name : 'Guest'
+                  = user_signed_in? ? current_user.name : t('Guest')
                   b.caret
                 ul.dropdown-menu
                   -if (user_signed_in?)
@@ -72,7 +72,7 @@ html lang="en"
             ul.nav.nav-list
               li.nav-header Sidebar
               li= link_to "New Offer", new_offer_path
-              li= link_to "Link 2", "/path2"
+              li= link_to t('activerecord.errors.offer.texts'), "/path2"
               li= link_to "Link 3", "/path3"
         .span9
           .row-fluid

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120227012332) do
+ActiveRecord::Schema.define(:version => 20120305164901) do
 
   create_table "offers", :force => true do |t|
     t.text     "description"
@@ -49,6 +49,15 @@ ActiveRecord::Schema.define(:version => 20120227012332) do
     t.integer  "weight"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "texts", :force => true do |t|
+    t.text     "text"
+    t.string   "lang"
+    t.integer  "item_id"
+    t.string   "item_type",  :default => "Offer"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   create_table "users", :force => true do |t|

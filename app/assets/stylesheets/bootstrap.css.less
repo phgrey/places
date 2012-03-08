@@ -39,3 +39,35 @@ body {
 }
 
 .navbar-search .search-query{border-radius: 3px;}
+
+fieldset.make-me-tabs > .tabbable label{cursor: pointer;}
+@media (min-width: 480px){
+    fieldset.make-me-tabs > .tabbable{
+        > ul.nav-tabs{
+            width:140px;
+            border-bottom: 0;
+            float: left;
+            margin-right: 19px;
+            border-right: 1px solid #ddd;
+
+            > li {
+                float: none;
+                > a {
+                    min-width: 74px;
+                    margin-bottom: 3px;
+                    margin-right: -1px;
+                    .border-radius(4px 0 0 4px);
+                }
+                > a:hover{
+                    border-color: @grayLighter #ddd @grayLighter @grayLighter;
+                }
+            }
+            > li.active{
+                a, a:hover {
+                    border-color: #ddd transparent #ddd #ddd;
+                    *border-right-color: @white
+                }
+            }
+        }
+    }
+}
