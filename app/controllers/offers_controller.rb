@@ -79,7 +79,7 @@ class OffersController < ApplicationController
       if(!user_signed_in?)
         @user = User.new
         @user.offers = [@offer]
-        format.html { render :action => "quick" }
+        format.html { render "users/new" }
       else
         format.html
       end

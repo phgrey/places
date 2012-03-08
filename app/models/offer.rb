@@ -21,8 +21,8 @@ class Offer < ActiveRecord::Base
     has user_id, created_at, updated_at
   end
 
-  validates :description, :hours, :user_id, :texts, :presence => true
-  validates :description, :length => {:in => 2..500}
+  validates :hours, :texts, :presence => true
+  #validates :description, :length => {:in => 2..500}
   validates :hours, :numericality => {:only_integer => true}
   validates :tag_list, :length => {:maximum => 100}
   validates_each :texts do |record, attr, value|

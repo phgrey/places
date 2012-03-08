@@ -1,0 +1,9 @@
+= simple_form_for(@user, :url => registration_path('user'), :html => {:class => 'form-horizontal' }) do |u|
+  = u.error_notification
+  = u.input :name, :required => true, :autofocus => true
+  = u.input :email, :required => true
+  = u.input :password, :required => true
+  = u.input :password_confirmation, :required => true
+  = u.fields_for :offers do |of|
+    = render 'offers/fields', :of => of
+  = u.button :wrapped

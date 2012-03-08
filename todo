@@ -1,17 +1,18 @@
-1. Nested forms
-1.1 Offer-desc (описания по языкам вынести в отдельную таблицу)
++1. Nested forms
++1.1 Offer-desc (описания по языкам вынести в отдельную таблицу)
 + Доделать красоту - http://twitter.github.com/bootstrap/components.html#navs
 + Валидация - хотя бы одно описание на форме должно быть заполнено
-1.2 User-offer (добавить возможность создавать офферы незарегистрированным пользователям)
++ 1.2 User-offer (добавить возможность создавать офферы незарегистрированным пользователям)
 2. Довести локализацию до ума - для locale=default не показывать в ссылке
-3. Оптимизировать теги (выставить enum) и texts
+3. Оптимизировать теги и texts (выставить enum и сократить описание до varchar(511))
 to_read - http://guides.rubyonrails.org/migrations.html#active-record-and-referential-integrity
-Ctrl+F "execute <<-SQL"
-4. Сделать пользователям возможность подтверждать, что они с habra
+Ctrl+F "execute <<-SQL"ь польз
+4. Сделатователям возможность подтверждать, что они с habra
 5. Сделать социал логин
-6. Поместить формы регистрации и авторизации на 1 страницу
++6. Поместить формы регистрации и авторизации на 1 страницу
 7. Письма на мыло с возможностью отписаться от рассылки
-
+8. use CanCan
+to_read - http://www.tonyamoyal.com/2010/07/28/rails-authentication-with-devise-and-cancan-customizing-devise-controllers/
 
 ПЕРЕД:
 
