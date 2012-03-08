@@ -9,8 +9,10 @@ to_read - http://guides.rubyonrails.org/migrations.html#active-record-and-refere
 Ctrl+F "execute <<-SQL"ь польз
 4. Сделатователям возможность подтверждать, что они с habra
 5. Сделать социал логин
+https://github.com/intridea/omniauth
 +6. Поместить формы регистрации и авторизации на 1 страницу
 7. Письма на мыло с возможностью отписаться от рассылки
+http://railscasts.com/episodes/61-sending-email
 8. use CanCan
 to_read - http://www.tonyamoyal.com/2010/07/28/rails-authentication-with-devise-and-cancan-customizing-devise-controllers/
 

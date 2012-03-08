@@ -30,6 +30,7 @@ class OffersController < ApplicationController
   # GET /offers
   # GET /offers.json
   def index
+    @name = I18n.t 'Offers.many'
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @offers }
@@ -37,11 +38,11 @@ class OffersController < ApplicationController
   end
 
   def tag
-    @tname = params[:tag]
-    add_crumb I18n.t(:Tag_w_name, :name => @tname), tag_offers_path(@tname)
-    @offers = @offers.tagged_with(@tname)
+    @name = params[:tag]
+    add_crumb I18n.t(:Tag_w_name, :name => @name), tag_offers_path(@name)
+    @offers = @offers.tagged_with(@name)
     respond_to do |format|
-      format.html
+      format.html { render "index" }
       format.json { render :json => @offers }
     end
   end
@@ -49,12 +50,16 @@ class OffersController < ApplicationController
 
   def search
     if(params[:s])
-      redirect_to search_offers_path(params[:s])
+      redirect_to search_offers_path(params[:s]) and return
     end
 
-    @search = params[:search]
+    @name = @search = params[:search]
     add_crumb  I18n.t(:Search_w_name, :name => @search), search_offers_path(:search => @search)
     @offers = Offer.search(@search, :page => params[:page], :per_page=>Offer.per_page)
+    respond_to do |format|
+      format.html { render "index" }
+      format.json { render :json => @offers }
+    end
   end
   # GET /offers/1
   # GET /offers/1.json
