@@ -1,20 +1,26 @@
 +1. Nested forms
-+1.1 Offer-desc (описания по языкам вынести в отдельную таблицу)
-+ Доделать красоту - http://twitter.github.com/bootstrap/components.html#navs
-+ Валидация - хотя бы одно описание на форме должно быть заполнено
-+ 1.2 User-offer (добавить возможность создавать офферы незарегистрированным пользователям)
+    +1.1 Offer-desc (описания по языкам вынести в отдельную таблицу)
+    + Доделать красоту - http://twitter.github.com/bootstrap/components.html#navs
+    + Валидация - хотя бы одно описание на форме должно быть заполнено
+    + 1.2 User-offer (добавить возможность создавать офферы незарегистрированным пользователям)
 2. Довести локализацию до ума - для locale=default не показывать в ссылке
 3. Оптимизировать теги и texts (выставить enum и сократить описание до varchar(511))
-to_read - http://guides.rubyonrails.org/migrations.html#active-record-and-referential-integrity
-Ctrl+F "execute <<-SQL"ь польз
+    to_read - http://guides.rubyonrails.org/migrations.html#active-record-and-referential-integrity
+    Ctrl+F "execute <<-SQL"ь польз
 4. Сделатователям возможность подтверждать, что они с habra
 5. Сделать социал логин
-https://github.com/intridea/omniauth
+    https://github.com/intridea/omniauth
+    http://railscasts.com/episodes?search=omniauth
+    http://railscasts.com/episodes/235-omniauth-part-1?view=asciicast
 +6. Поместить формы регистрации и авторизации на 1 страницу
 7. Письма на мыло с возможностью отписаться от рассылки
-http://railscasts.com/episodes/61-sending-email
+    +7.1 письма отправляются
+        http://railscasts.com/episodes/61-sending-email
+    7.2 Предпочитаемый язык для пользователей - определение при регистрации
+    7.3 Возможность для пользователей указать do-not send me email
 8. use CanCan
-to_read - http://www.tonyamoyal.com/2010/07/28/rails-authentication-with-devise-and-cancan-customizing-devise-controllers/
+    to_read - http://www.tonyamoyal.com/2010/07/28/rails-authentication-with-devise-and-cancan-customizing-devise-controllers/
+9. title - http://railscasts.com/episodes/30-pretty-page-title
 
 ПЕРЕД:
 
@@ -26,3 +32,5 @@ to_read - http://www.tonyamoyal.com/2010/07/28/rails-authentication-with-devise-
 
 1. Сделать многоязычное описание на форме с переключалкой не через js
 2. Сделать выборку только по тем полям, которые введены (т.е. в списке офферов на английском не показывать те, у которых не заполнено аншлийское описание)
+3. Для пользователей, зарегистрировавшихся через социал отправлять уведомления
+4.

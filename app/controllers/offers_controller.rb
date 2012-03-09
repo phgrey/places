@@ -140,4 +140,11 @@ class OffersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def test_send_email
+    mail_user = User.first
+    mail_offer = Offer.last
+
+    MatchMailer.offer_got_answer(mail_offer, mail_user).deliver
+  end
 end
