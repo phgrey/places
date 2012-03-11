@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120305164901) do
+ActiveRecord::Schema.define(:version => 20120310144716) do
+
+  create_table "authentications", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.decimal  "external_id", :precision => 22, :scale => 0
+    t.string   "rawdata"
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+  end
 
   create_table "offers", :force => true do |t|
     t.text     "description"
@@ -26,6 +35,19 @@ ActiveRecord::Schema.define(:version => 20120305164901) do
   end
 
   add_index "offers_tags", ["offer_id", "tag_id"], :name => "index_offers_tags_on_offer_id_and_tag_id", :unique => true
+
+  create_table "socials", :force => true do |t|
+    t.integer  "user_id",                                                      :null => false
+    t.string   "provider",                                                     :null => false
+    t.decimal  "external_id", :precision => 10, :scale => 0,                   :null => false
+    t.string   "rawdata"
+    t.boolean  "public",                                     :default => true, :null => false
+    t.datetime "created_at",                                                   :null => false
+    t.datetime "updated_at",                                                   :null => false
+  end
+
+  add_index "socials", ["external_id", "provider"], :name => "index_socials_on_external_id_and_provider", :unique => true
+  add_index "socials", ["user_id", "public"], :name => "index_socials_on_user_id_and_public"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
@@ -62,7 +84,7 @@ ActiveRecord::Schema.define(:version => 20120305164901) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
-    t.string   "email",                  :default => "", :null => false
+    t.string   "email",                  :default => ""
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"

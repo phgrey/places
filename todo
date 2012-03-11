@@ -7,11 +7,13 @@
 3. Оптимизировать теги и texts (выставить enum и сократить описание до varchar(511))
     to_read - http://guides.rubyonrails.org/migrations.html#active-record-and-referential-integrity
     Ctrl+F "execute <<-SQL"ь польз
-4. Сделатователям возможность подтверждать, что они с habra
+4. Сделать пользователям возможность подтверждать, что они с habra
 5. Сделать социал логин
-    https://github.com/intridea/omniauth
-    http://railscasts.com/episodes?search=omniauth
-    http://railscasts.com/episodes/235-omniauth-part-1?view=asciicast
+    simple way:
+        https://github.com/plataformatec/devise/wiki/OmniAuth%3A-Overview
+    hard way:
+        http://railscasts.com/episodes/235-omniauth-part-1
+        http://railscasts.com/episodes/236-omniauth-part-2
 +6. Поместить формы регистрации и авторизации на 1 страницу
 7. Письма на мыло с возможностью отписаться от рассылки
     +7.1 письма отправляются
@@ -27,10 +29,13 @@
 1. Handlersocket
 2. Разобраться с серверами to read - http://guides.rubyonrails.org/rails_on_rack.html
 3. Перевести все на ruby 1.9
+4. Профайлинг, нагрузочное, функциональное и unit-тестирования
 
 ПОСЛЕ:
 
 1. Сделать многоязычное описание на форме с переключалкой не через js
 2. Сделать выборку только по тем полям, которые введены (т.е. в списке офферов на английском не показывать те, у которых не заполнено аншлийское описание)
 3. Для пользователей, зарегистрировавшихся через социал отправлять уведомления
-4.
+    http://blog.assimov.net/post/1635826492/facebook-integration-with-omniauth-and-devise-on-rails
+4. Избавиться от devise
+    http://railscasts.com/episodes/304-omniauth-identity

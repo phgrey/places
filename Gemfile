@@ -60,5 +60,13 @@ gem 'will_paginate'
 gem 'thinking-sphinx', '>= 2.0.10'
 
 gem 'russian'
+
+gem 'omniauth'
+
+gem 'omniauth-twitter'
+gem 'omniauth-vkontakte'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-github'
 # To use debugger
 # gem 'ruby-debug'

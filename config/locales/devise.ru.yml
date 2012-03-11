@@ -51,6 +51,9 @@ ru:
     omniauth_callbacks:
       success: "Вход в систему выполнен с учётной записью из %{kind}."
       failure: "Вы не можете войти в систему с учётной записью из %{kind}, т.к. \"%{reason}\"."
+    omniauth:
+      user:
+        failure: Во время подключения что-то пошло не так
     mailer:
       confirmation_instructions:
         subject: "Инструкции по подтверждению учётной записи"

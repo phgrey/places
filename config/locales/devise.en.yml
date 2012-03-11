@@ -48,6 +48,9 @@ en:
     omniauth_callbacks:
       success: 'Successfully authorized from %{kind} account.'
       failure: 'Could not authorize you from %{kind} because "%{reason}".'
+    omniauth:
+      user:
+        failure: Something's wrong when trying to process your connection
     mailer:
       confirmation_instructions:
         subject: 'Confirmation instructions'
