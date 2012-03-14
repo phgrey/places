@@ -1,4 +1,4 @@
-class Social < ActiveRecord::Base
+Aclass Social < ActiveRecord::Base
   attr_accessible :provider, :external_id, :user_id
   belongs_to :user
 
@@ -9,10 +9,13 @@ class Social < ActiveRecord::Base
     if(auth)
       auth.user
     else
-      user||= data[:email] == nil || !(ube = User.where(:email => data[:email] ).first) ? User.new(:name => data[:name], :email => data[:email], :password => Devise.friendly_token[0,20] ) : ube
+      if (data[:email] == nil || !(ube = User.where(:email => data[:email] ).first) )
+         user||=  User.new(:name => data[:name], :email => data[:email], :password => Devise.friendly_token[0,20])
+      else
+        user = ube
 
       user.email = data[:email] if(data[:email] != nil) && (user.email == nil)
-      user.authentications_attributes= [auth_attrs]
+      user.socials_attributes= [auth_attrs]
       user.save(:validate => false)
       user
     end
@@ -34,5 +37,4 @@ class Social < ActiveRecord::Base
       {:id => data.id, :name => data.name||data.login, :email => data.email||nil}
     end
   end
-
 end

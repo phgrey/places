@@ -24,6 +24,12 @@ group :assets do
   gem 'twitter-bootstrap-rails'
 end
 
+group :test, :development do
+  gem "rspec-rails"
+  gem 'ruby-debug-ide'
+  gem 'ruby-debug'
+end
+
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
@@ -69,4 +75,4 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
 # To use debugger
-# gem 'ruby-debug'
+

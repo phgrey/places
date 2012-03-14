@@ -3,7 +3,7 @@ class Text < ActiveRecord::Base
   #validates :text, :lang, :item_id, :item_type,  :presence => true
   validates :text, :length => {:in => 2..500, :allow_blank => true }
   validates :lang, :inclusion => { :in => %w(ru en)}
-  validates :item_type, :inclusion => {:in => %w(Offer Task)}
+  validates :item_type, :inclusion => {:in => %w(Offer Task User)}
 
   def self.new_for_each_locale(item_type)
     [

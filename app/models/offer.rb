@@ -34,8 +34,6 @@ class Offer < ActiveRecord::Base
     end
   end
 
-
-
   def created_safe
     created_at ?  created_at  : Time.now - 1.year
   end

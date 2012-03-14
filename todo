@@ -3,17 +3,21 @@
     + Доделать красоту - http://twitter.github.com/bootstrap/components.html#navs
     + Валидация - хотя бы одно описание на форме должно быть заполнено
     + 1.2 User-offer (добавить возможность создавать офферы незарегистрированным пользователям)
-2. Довести локализацию до ума - для locale=default не показывать в ссылке
+2. Довести локализацию до ума
+    2.1 для locale=default не показывать в ссылке. Возможно, поддомены?
+    2.2 сделать языки
 3. Оптимизировать теги и texts (выставить enum и сократить описание до varchar(511))
     to_read - http://guides.rubyonrails.org/migrations.html#active-record-and-referential-integrity
     Ctrl+F "execute <<-SQL"ь польз
-4. Сделать пользователям возможность подтверждать, что они с habra
 5. Сделать социал логин
-    simple way:
-        https://github.com/plataformatec/devise/wiki/OmniAuth%3A-Overview
-    hard way:
-        http://railscasts.com/episodes/235-omniauth-part-1
-        http://railscasts.com/episodes/236-omniauth-part-2
+    +5.1 Непосредственно логин
+        simple way:
+            https://github.com/plataformatec/devise/wiki/OmniAuth%3A-Overview
+        hard way:
+            http://railscasts.com/episodes/235-omniauth-part-1
+            http://railscasts.com/episodes/236-omniauth-part-2
+    5.2 Сделать красивые иконки, надписи (войти через / подключить)
+    5.3 Перепроверить (unit-тесты?) ситуации с пересекающимися email
 +6. Поместить формы регистрации и авторизации на 1 страницу
 7. Письма на мыло с возможностью отписаться от рассылки
     +7.1 письма отправляются
@@ -23,13 +27,34 @@
 8. use CanCan
     to_read - http://www.tonyamoyal.com/2010/07/28/rails-authentication-with-devise-and-cancan-customizing-devise-controllers/
 9. title - http://railscasts.com/episodes/30-pretty-page-title
+10. Профиль пользователя с редактированием
+    10.1 Добавить фото (Gravatar) + получение фото при social login
+    10.2 Добавить предпочитаемый язык
+    10.3 Добавить галочку "не получать письма"
+    10.4 Добавить в профиле список подключенных соцсетей и напротив каждой - галочка "отображать связь"
+    10.5 Сделать пользователям возможность подтверждать, что они с habra
+    10.6 Био - 2-язычное описание пользователя
+11. Кнопку mark/unmark на оффер,
+    11.1 Публичный список помеченных пользователем полей
+    11.2 письмо на мыло при  получении пометки
+12. use vim
+    12.1 ctags
+    http://blog.bojica.com/2010/06/27/ctags-and-vim-for-ruby-on-rails-development
+    # cd ~/work/coworkers.my
+    # ctags -R --exclude=.git --exclude=log -f tags * /var/lib/gems/1.8/gems/
 
 ПЕРЕД:
 
 1. Handlersocket
-2. Разобраться с серверами to read - http://guides.rubyonrails.org/rails_on_rack.html
+2. Разобраться с серверами
+    +2.1 to read - http://guides.rubyonrails.org/rails_on_rack.html
+    2.2 выбрать сервер для запуска рельс на живую
 3. Перевести все на ruby 1.9
+    http://beginrescueend.com/
 4. Профайлинг, нагрузочное, функциональное и unit-тестирования
+    https://github.com/rspec/rspec-rails
+    http://guides.rubyonrails.org/testing.html
++5. Что такое middleware? (Впервые увидел на OmniAuth)
 
 ПОСЛЕ:
 
@@ -39,3 +64,4 @@
     http://blog.assimov.net/post/1635826492/facebook-integration-with-omniauth-and-devise-on-rails
 4. Избавиться от devise
     http://railscasts.com/episodes/304-omniauth-identity
+5.

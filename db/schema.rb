@@ -10,16 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120310144716) do
-
-  create_table "authentications", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "provider"
-    t.decimal  "external_id", :precision => 22, :scale => 0
-    t.string   "rawdata"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
-  end
+ActiveRecord::Schema.define(:version => 20120313214204) do
 
   create_table "offers", :force => true do |t|
     t.text     "description"
@@ -29,17 +20,10 @@ ActiveRecord::Schema.define(:version => 20120310144716) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "offers_tags", :id => false, :force => true do |t|
-    t.integer "tag_id"
-    t.integer "offer_id"
-  end
-
-  add_index "offers_tags", ["offer_id", "tag_id"], :name => "index_offers_tags_on_offer_id_and_tag_id", :unique => true
-
   create_table "socials", :force => true do |t|
     t.integer  "user_id",                                                      :null => false
     t.string   "provider",                                                     :null => false
-    t.decimal  "external_id", :precision => 10, :scale => 0,                   :null => false
+    t.decimal  "external_id", :precision => 22, :scale => 0,                   :null => false
     t.string   "rawdata"
     t.boolean  "public",                                     :default => true, :null => false
     t.datetime "created_at",                                                   :null => false
@@ -66,13 +50,6 @@ ActiveRecord::Schema.define(:version => 20120310144716) do
     t.string "name"
   end
 
-  create_table "tags_m", :force => true do |t|
-    t.string   "name"
-    t.integer  "weight"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "texts", :force => true do |t|
     t.text     "text"
     t.string   "lang"
@@ -85,7 +62,7 @@ ActiveRecord::Schema.define(:version => 20120310144716) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email",                  :default => ""
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "encrypted_password",     :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -94,6 +71,10 @@ ActiveRecord::Schema.define(:version => 20120310144716) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "lang",                   :default => "en",  :null => false
+    t.string   "photo"
+    t.boolean  "habred",                 :default => false, :null => false
+    t.integer  "options",                :default => 1
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
