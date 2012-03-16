@@ -26,14 +26,14 @@ class Offer < ActiveRecord::Base
   #validates :description, :length => {:in => 2..500}
   validates :hours, :numericality => {:only_integer => true}
   validates :tag_list, :length => {:maximum => 100}
-  #validates_each :texts do |record, attr, value|
-  #  all_empty = true
-  #  value.each {|v| all_empty &=v.text.blank?}
-  #  if all_empty
-  #    record.errors.add('texts', 'this is just for fun, only next error will be displayed')
-  #    record.texts[0].errors.add('text', I18n.t('activerecord.errors.offer.texts'))
-  #  end
-  #end
+  validates_each :texts do |record, attr, value|
+    all_empty = true
+    value.each {|v| all_empty &=v.text.blank?}
+    if all_empty
+      record.errors.add('texts', 'this is just for fun, only next error will be displayed')
+      record.texts[0].errors.add('text', I18n.t('activerecord.errors.offer.texts'))
+    end
+  end
 
 
   def init

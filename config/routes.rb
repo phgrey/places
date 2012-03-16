@@ -7,7 +7,7 @@ CoworkersMy::Application.routes.draw do
 
   resources :test, :only => [:index, :show]
 
-  scope "(:locale)", :locale => /en|ru/ do
+  scope "(:locale)", :locale => Regexp.new(I18n.available_locales.join('|')) do
     devise_for :users, :sign_out_via => [ :get ], :controllers => { :omniauth_callbacks => "users/omniauth" }
     #devise_for :users, :sign_out_via => [ :get ], :controllers => { :omniauth_callbacks => "users/omniauth", :registrations => "users/registrations" }
     resources :users, :only => [:index, :show]
