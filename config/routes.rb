@@ -1,4 +1,10 @@
 CoworkersMy::Application.routes.draw do
+  get "habred/new"
+
+  get "habred/create"
+
+  get "habred/remove"
+
   resources :test, :only => [:index, :show]
 
   scope "(:locale)", :locale => /en|ru/ do

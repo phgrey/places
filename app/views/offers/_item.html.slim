@@ -1,20 +1,19 @@
 p.no-margin
   span.small.pull-right
-    =' link_to '#'+@offer.id.to_s, @offer
+    =' link_to '#'+offer.id.to_s, offer
     a.icon-star-empty
   i.icon-user
-  = link_to @offer.user.name, @offer.user
+  = link_to offer.user.name, offer.user
 hr.no-margin
--if user_signed_in? && current_user.id == @offer.user_id
+-if user_signed_in? && current_user.id == offer.user_id
   .pull-right
-    = link_to '', edit_offer_path(@offer), :class => 'icon-edit'
-p= link_to @offer.description, offer_path(@offer)
--if(@offer.tags.count > 0)
+    = link_to '', edit_offer_path(offer), :class => 'icon-edit'
+p= link_to offer.description, offer_path(offer)
+-if(offer.tags.count > 0)
   p.no-margin
     span.small.pull-right
-      /= @offer.created_at ? l(@offer.created_at, {:format => :short}) : ''
-      = time_ago_in_words(@offer.created_safe)+t(:ago)
+      = time_ago_in_words(offer.created_safe)+t(:ago)
     i.icon-tags
-    -@offer.tags.each do |tag|
+    -offer.tags.each do |tag|
       '
       =link_to tag.name, tag_offers_path(tag.name)

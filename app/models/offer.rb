@@ -1,11 +1,12 @@
 class Offer < ActiveRecord::Base
   attr_accessible :description, :hours, :tag_list, :texts_attributes, :text, :texts
   belongs_to :user
-  has_many :texts, :foreign_key => 'item_id', :conditions => {:item_type => 'Offer'}
+  has_many :texts, :foreign_key => 'item_id', :conditions => {:item_type => 'Offer'}, :inverse_of => :offer
   #has_one :text, :foreign_key => 'item_id', :conditions => {:item_type => 'Offer', :lang=> I18n.locale}
   #has_and_belongs_to_many :tags, :uniq => true
   acts_as_taggable
 
+  #after_initialize :init, :if => :new_record?
 
   accepts_nested_attributes_for :texts, :allow_destroy => true
 
@@ -25,13 +26,21 @@ class Offer < ActiveRecord::Base
   #validates :description, :length => {:in => 2..500}
   validates :hours, :numericality => {:only_integer => true}
   validates :tag_list, :length => {:maximum => 100}
-  validates_each :texts do |record, attr, value|
-    all_empty = true
-    value.each {|v| all_empty &=v.text.blank?}
-    if all_empty
-      record.errors.add('texts', 'this is just for fun, only next error will be displayed')
-      record.texts[0].errors.add('text', I18n.t('activerecord.errors.offer.texts'))
-    end
+  #validates_each :texts do |record, attr, value|
+  #  all_empty = true
+  #  value.each {|v| all_empty &=v.text.blank?}
+  #  if all_empty
+  #    record.errors.add('texts', 'this is just for fun, only next error will be displayed')
+  #    record.texts[0].errors.add('text', I18n.t('activerecord.errors.offer.texts'))
+  #  end
+  #end
+
+
+  def init
+    puts 'callback is called'
+    #puts self.inspect
+
+    self.texts = Text.new_for_each_locale('Offer') unless self.texts.count > 0
   end
 
   def created_safe

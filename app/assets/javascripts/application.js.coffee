@@ -32,5 +32,5 @@ jQuery ->
       $(@).attr({'id':'t'+num+'_'+i})
     .first().addClass('active')
 
-    par.appendTo(@).tab "show"
+    par.insertBefore($(@).find('.control-group').first()).tab "show"
 
