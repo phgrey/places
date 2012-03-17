@@ -1,9 +1,9 @@
 CoworkersMy::Application.routes.draw do
-  get "habred/new"
-
-  get "habred/create"
-
-  get "habred/remove"
+  #get "habred/new"
+  #
+  #get "habred/create"
+  #
+  #get "habred/remove"
 
   resources :test, :only => [:index, :show]
 
@@ -11,10 +11,12 @@ CoworkersMy::Application.routes.draw do
     devise_for :users, :sign_out_via => [ :get ], :controllers => { :omniauth_callbacks => "users/omniauth" }
     #devise_for :users, :sign_out_via => [ :get ], :controllers => { :omniauth_callbacks => "users/omniauth", :registrations => "users/registrations" }
     resources :users, :only => [:index, :show]
-
     #match "offers?s=:search" => redirect {|params| "/offers/search/#{params[search]}"}
     #post "offers*other" => redirect {|params| "/offers/search/#{params[:s]}"}
     #match "/tags/(:tag)" => redirect("/offers/%{tag}")
+
+    resource :habred, :only => [:edit, :update], :module => "users"
+
 
     resources :offers do
       collection do

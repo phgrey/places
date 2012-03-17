@@ -1,4 +1,6 @@
 require "md5"
+#require 'open-uri'
+require 'net/http'
 
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
@@ -7,8 +9,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :options,
-      :send_me_email, :lang,
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :options,  :lang,
+      :send_me_email, :habred,
       :offers_attributes, :socials_attributes, :texts, :texts_attributes
 
 
@@ -74,6 +76,22 @@ class User < ActiveRecord::Base
     super
     hash = MD5::md5(new_email.downcase).to_s
     self.photo||='http://www.gravatar.com/avatar/'+ hash + '.jpg'
+  end
+
+  def set_habred(value, habr_login)
+    if(value && !self.habred?)
+      code = get_code
+      found = nil
+      #open("http://habrahabr.ru/users/#{habr_login}/"){|webpage| found= webpage[code] }
+      webpage = Net::HTTP.get("habrahabr.ru", "/users/#{habr_login}/")
+      found= webpage[code]
+      return false unless found
+    end
+    update_attributes(:name => habr_login, :habred => value)
+  end
+
+  def get_code
+    MD5::md5(self.inspect).to_s
   end
 
 end

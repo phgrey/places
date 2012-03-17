@@ -81,9 +81,8 @@ html lang="en"
         .span9
           .row-fluid
             .pull-right
-              - if(!notice)
-                -notice='Ololol'
-              .alert.alert-success.no-margin= notice
+              - if(notice)
+                .alert.alert-success.no-margin= notice
               - if(alert)
                 .alert.alert-error= alert
             .pull-left.alert.no-margin

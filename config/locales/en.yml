@@ -15,6 +15,13 @@ en:
   ago: ' ago'
   Cancel: 'Cancel'
 
+  I_am_from_habr:
+    title: 'I live on Habr'
+    desription: 'On this page you can specify that a member of the community <a href="http://habr.ru"> Habrahabr </a>. In order for us to verify this, place it on your <a href="http://habrahabr.ru/settings/"> profile </a> the following code - <b>%{code}</b>, enter below in the appropriate field your login and click "Save." After receiving confirmation from the system, the code can be removed.'
+    messages:
+       success_on: "Changes saved successfully, you are marked as habrauser %{name}"
+       success_off: "Mark habrauser is removed"
+       errors: "For some reason we could not save changes"
   activerecord:
     models:
       offer: Offer

@@ -18,7 +18,7 @@ class OffersController < ApplicationController
   def get_offer_check_owner
     get_offer
     if current_user[:id] != @offer.user_id
-      flash[:notice] = "Sorry, you can’t change this offer"
+      flash[:notice] = I18n.t("Sorry, you can’t change this offer")
       redirect_to offers_path
     end
   end
@@ -94,7 +94,7 @@ class OffersController < ApplicationController
 
   # GET /offers/1/edit
   def edit
-    add_crumb( I18n.t('edit'), edit_offer_path(@offer))
+    add_crumb( I18n.t('Offers.editing'), edit_offer_path(@offer))
 
 
   end
@@ -107,7 +107,7 @@ class OffersController < ApplicationController
     @offer.user = current_user
     respond_to do |format|
       if @offer.save
-        format.html { redirect_to @offer, :notice => 'Offer was successfully created.' }
+        format.html { redirect_to @offer, :notice =>  I18n.t('Offer was successfully created.') }
         format.json { render :json => @offer, :status => :created, :location => @offer }
       else
         format.html { render :action => "new" }
@@ -119,10 +119,10 @@ class OffersController < ApplicationController
   # PUT /offers/1
   # PUT /offers/1.json
   def update
-    add_crumb( I18n.t('edit'), edit_offer_path(@offer))
+    add_crumb( I18n.t('Offers.editing'), edit_offer_path(@offer))
     respond_to do |format|
       if @offer.update_attributes(params[:offer])
-        format.html { redirect_to @offer, :notice => 'Offer was successfully updated.' }
+        format.html { redirect_to @offer, :notice =>  I18n.t('Offer was successfully updated.') }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
