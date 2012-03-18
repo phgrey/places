@@ -74,5 +74,7 @@ gem 'omniauth-vkontakte'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
+
+gem 'cancan'
 # To use debugger
 

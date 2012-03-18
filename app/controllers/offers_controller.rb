@@ -1,32 +1,10 @@
 class OffersController < ApplicationController
   before_filter :authenticate_user!, :only => [:edit, :create, :update, :destroy]
   before_filter :set_crumb
-  before_filter :get_offer_check_owner, :only => [:edit, :update, :destroy]
+  before_filter :get_offer, :only => [:edit, :update, :destroy, :show]
   before_filter :add_pager, :only => [:index, :tag]
+  load_and_authorize_resource
 
-
-  def set_crumb
-    add_crumb I18n.t("Offers.many"), offers_path
-  end
-
-
-  def get_offer
-    @offer = Offer.find(params[:id])
-    add_crumb('#'+@offer.id.to_s, offer_path(@offer))
-  end
-
-  def get_offer_check_owner
-    get_offer
-    if current_user[:id] != @offer.user_id
-      flash[:notice] = I18n.t("Sorry, you can’t change this offer")
-      redirect_to offers_path
-    end
-  end
-
-  def add_pager
-    @offers = Offer.page(params[:page])
-  end
-  
   # GET /offers
   # GET /offers.json
   def index
@@ -82,9 +60,10 @@ class OffersController < ApplicationController
 
     respond_to do |format|
       if(!user_signed_in?)
-        @user = User.new
-        @user.offers = [@offer]
-        format.html { render "users/new" }
+        @user = User.new(:offers => [@offer])
+
+        #@user.offers = [@offer]
+        format.html { render "devise/registrations/new" }
       else
         format.html
       end
@@ -147,4 +126,20 @@ class OffersController < ApplicationController
 
     MatchMailer.offer_got_answer(mail_offer, mail_user).deliver
   end
+
+  protected
+  def set_crumb
+    add_crumb I18n.t("Offers.many"), offers_path
+  end
+
+  def get_offer
+    @offer = Offer.find(params[:id])
+    add_crumb('#'+@offer.id.to_s, offer_path(@offer))
+  end
+
+  def add_pager
+    @offers = Offer.page(params[:page])
+  end
+
+
 end

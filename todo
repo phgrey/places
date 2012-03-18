@@ -5,7 +5,7 @@
     + 1.2 User-offer (добавить возможность создавать офферы незарегистрированным пользователям)
 2. Довести локализацию до ума
     2.1 для locale=default не показывать в ссылке. Возможно, поддомены?
-    2.2 сделать языки
+    +2.2 сделать языки кросс-сайт настраиваемыми
 3. Оптимизировать теги и texts (выставить enum и сократить описание до varchar(511))
     to_read - http://guides.rubyonrails.org/migrations.html#active-record-and-referential-integrity
     Ctrl+F "execute <<-SQL"ь польз
@@ -24,19 +24,20 @@
         http://railscasts.com/episodes/61-sending-email
     7.2 Предпочитаемый язык для пользователей - определение при регистрации
     7.3 Возможность для пользователей указать do-not send me email
-8. use CanCan
++8. use CanCan
     to_read - http://www.tonyamoyal.com/2010/07/28/rails-authentication-with-devise-and-cancan-customizing-devise-controllers/
 9. title - http://railscasts.com/episodes/30-pretty-page-title
     9.1 было бы здорово генерировать title на основании breadcrumbs
-10. Профиль пользователя с редактированием
++10. Профиль пользователя с редактированием
     +10.1 Добавить фото (Gravatar) + получение фото при social login
         -10.1.1 facebook
         +10.1.2 прочие (кроме gitHub, там граватар)
     +10.2 Добавить предпочитаемый язык
     +10.3 Добавить галочку "не получать письма"
     +10.4 Добавить в профиле список подключенных соцсетей и напротив каждой - галочка "отображать связь"
-    10.5 Сделать пользователям возможность подтверждать, что они с habra
+    +10.5 Сделать пользователям возможность подтверждать, что они с habra
     +10.6 Био - 2-язычное описание пользователя
+
 11. Кнопку mark/unmark на оффер,
     11.1 Публичный список помеченных пользователем полей
     11.2 письмо на мыло при  получении пометки
@@ -58,7 +59,7 @@
     https://github.com/rspec/rspec-rails
     http://guides.rubyonrails.org/testing.html
 +5. Что такое middleware? (Впервые увидел на OmniAuth)
-+6. Что такое has_many ... :inverse_of
+6. Что такое has_many ... :inverse_of
 
 ПОСЛЕ:
 

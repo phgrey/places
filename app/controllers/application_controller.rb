@@ -17,4 +17,9 @@ class ApplicationController < ActionController::Base
   { :locale => I18n.locale }
   end
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => I18n.t(exception.message)
+  end
+
 end
+
