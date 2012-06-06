@@ -5,7 +5,7 @@ CoworkersMy::Application.routes.draw do
   #
   #get "habred/remove"
 
-  resources :test, :only => [:index, :show]
+  resources :test
 
   scope "(:locale)", :locale => Regexp.new(I18n.available_locales.join('|')) do
     devise_for :users, :sign_out_via => [ :get ], :controllers => { :omniauth_callbacks => "users/omniauth" }

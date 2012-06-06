@@ -42,8 +42,6 @@ class OffersController < ApplicationController
   # GET /offers/1
   # GET /offers/1.json
   def show
-    get_offer
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @offer }
@@ -133,7 +131,8 @@ class OffersController < ApplicationController
   end
 
   def get_offer
-    @offer = Offer.find(params[:id])
+    id = params[:id]
+    @offer = Offer.find(id)
     add_crumb('#'+@offer.id.to_s, offer_path(@offer))
   end
 

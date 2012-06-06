@@ -59,5 +59,6 @@ module CoworkersMy
 
 
     config.autoload_paths += %W(#{config.root}/lib/extras)
+    #config.autoload_paths += %W(#{config.root}/lib/extras #{config.root}/handsock/lib)
   end
 end

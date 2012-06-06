@@ -25,7 +25,7 @@ class Users::OmniauthController < Devise::OmniauthCallbacksController
   protected
 
   def connect(provider)
-    render request.env["omniauth.auth"].extra.raw_info.to_yaml and return
+    #render request.env["omniauth.auth"].extra.raw_info.to_yaml and return
     user = Social.find_for(provider, request.env["omniauth.auth"], current_user)
     if user.persisted?
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => provider.titleize

@@ -18,6 +18,7 @@
             http://railscasts.com/episodes/236-omniauth-part-2
     5.2 Сделать красивые иконки, надписи (войти через / подключить)
     +5.3 Перепроверить (unit-тесты?) ситуации с пересекающимися email
+    5.4 Запоминать (кука?) как именно пользователь вошел на сайт
 +6. Поместить формы регистрации и авторизации на 1 страницу
 7. Письма на мыло с возможностью отписаться от рассылки
     +7.1 письма отправляются
@@ -46,20 +47,32 @@
     http://blog.bojica.com/2010/06/27/ctags-and-vim-for-ruby-on-rails-development
     # cd ~/work/coworkers.my
     # ctags -R --exclude=.git --exclude=log -f tags * /var/lib/gems/1.8/gems/
+13. Автокомплит в поиск
 
 ПЕРЕД:
 
 1. Handlersocket
+    to_read - http://stackoverflow.com/questions/4286690/writing-drivers-for-activerecordrails-3
+    to use - https://bitbucket.org/winebarrel/ruby-handlersocket/src/c19841e47ea2/README
+    to use - https://github.com/quake/active_record_handlersocket
+
+    /var/lib/gems/1.8/gems/arel-3.0.0/lib/arel/visitors/depth_first.rb :129 - это то, как разбирать собранный объект запроса (arel)
+    /var/lib/gems/1.8/gems/activerecord-3.2.1/lib/active_record/connection_adapters/abstract/database_statements.rb : select_all вот сюда надо врезаться
 2. Разобраться с серверами
     +2.1 to read - http://guides.rubyonrails.org/rails_on_rack.html
     2.2 выбрать сервер для запуска рельс на живую
+    2.2 попробовать запуск через nginx
 3. Перевести все на ruby 1.9
     http://beginrescueend.com/
 4. Профайлинг, нагрузочное, функциональное и unit-тестирования
     https://github.com/rspec/rspec-rails
     http://guides.rubyonrails.org/testing.html
+    http://guides.rubyonrails.org/performance_testing.html
+    ------------------------------------------------
+    http://ruby-prof.rubyforge.org/
 +5. Что такое middleware? (Впервые увидел на OmniAuth)
 6. Что такое has_many ... :inverse_of
+
 
 ПОСЛЕ:
 
