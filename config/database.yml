@@ -12,7 +12,7 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: cowork
+  database: dashboard
   pool: 5
   username: root
   password: root
@@ -25,7 +25,7 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: cowork_test
+  database: dashboard_test
   pool: 5
   username: root
   password: root
