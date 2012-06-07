@@ -1,4 +1,4 @@
-CoworkersMy::Application.routes.draw do
+DashboardMy::Application.routes.draw do
   #get "habred/new"
   #
   #get "habred/create"
@@ -32,6 +32,8 @@ CoworkersMy::Application.routes.draw do
       #resources :tasks
 
     end
+    match 'category/:id' => 'offers#index', :as => :category
+
     root :to => 'offers#index'
   end
 

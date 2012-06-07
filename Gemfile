@@ -76,6 +76,9 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
 
 gem 'cancan'
+#nested categories
+gem 'awesome_nested_set'
+gem 'the_sortable_tree'
 
 #gem 'handsock'
 # To use debugger

@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-CoworkersMy::Application.load_tasks
+DashboardMy::Application.load_tasks

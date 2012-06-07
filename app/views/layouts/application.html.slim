@@ -2,7 +2,7 @@ doctype html
 html lang="en"
   head
     meta charset="utf-8"
-    title CoworkersMy
+    title DashboardMy
     = csrf_meta_tags
 
     /! Le HTML5 shim, for IE6-8 support of HTML elements
@@ -25,7 +25,7 @@ html lang="en"
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.brand href="/" CoworkersMy
+          a.brand href="/" DashboardMy
           .container-fluid.nav-collapse
             form.navbar-search.pull-left action=search_offers_path
               input.search-query.span4 type="text" placeholder=t(:Search) name="s" value=@search
@@ -78,6 +78,8 @@ html lang="en"
               li= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2)
               li= link_to "Sign in with GitHub", user_omniauth_authorize_path(:github)
               li= link_to "Link 3", "/path3"
+          .well.sidebar-nav
+            = sortable_tree( @cat_tree, :path => 'categories/tree/base')
         .span9
           .row-fluid
             .pull-right
