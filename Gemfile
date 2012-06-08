@@ -21,7 +21,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 # Twitter bootstrap
   #gem 'less-rails-bootstrap'
-  gem 'twitter-bootstrap-rails'
+  gem 'twitter-bootstrap-rails'# , :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 end
 
 group :test, :development do
@@ -79,6 +79,8 @@ gem 'cancan'
 #nested categories
 gem 'awesome_nested_set'
 gem 'the_sortable_tree'
+
+gem 'friendly_id'
 
 #gem 'handsock'
 # To use debugger

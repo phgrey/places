@@ -10,18 +10,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120607162040) do
+ActiveRecord::Schema.define(:version => 20120607225135) do
 
   create_table "categories", :force => true do |t|
-    t.text     "name"
-    t.text     "slug"
+    t.string   "name"
+    t.string   "slug"
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
     t.integer  "depth"
+    t.string   "lang"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "categories", ["lang", "slug"], :name => "index_categories_on_lang_and_slug", :unique => true
+  add_index "categories", ["lft"], :name => "index_categories_on_lft"
+  add_index "categories", ["rgt"], :name => "index_categories_on_rgt"
+
+  create_table "cattings", :force => true do |t|
+    t.integer "cattable_id"
+    t.string  "cattable_type"
+    t.integer "category_id"
+  end
+
+  add_index "cattings", ["category_id"], :name => "index_cattings_on_category_id"
+  add_index "cattings", ["cattable_id", "cattable_type"], :name => "index_cattings_on_cattable_id_and_cattable_type"
 
   create_table "offers", :force => true do |t|
     t.text     "description"

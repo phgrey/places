@@ -3,7 +3,10 @@ class Offer < ActiveRecord::Base
   belongs_to :user
   has_many :texts, :foreign_key => 'item_id', :conditions => {:item_type => 'Offer'}, :inverse_of => :offer
   #has_one :text, :foreign_key => 'item_id', :conditions => {:item_type => 'Offer', :lang=> I18n.locale}
-  #has_and_belongs_to_many :tags, :uniq => true
+  #has_and_belongs_to_many :categories, :uniq => true, :polymorphic => true, :as => :cattable
+  has_many :cattings, :as => :cattable
+  has_many :categories, :through => :cattings
+
   acts_as_taggable
 
   #after_initialize :init, :if => :new_record?
@@ -53,6 +56,10 @@ class Offer < ActiveRecord::Base
 
   def self.new_w_texts
     new(:texts => Text.new_for_each_locale('Offer'))
+  end
+
+  def self.by_cat cat
+    joins(:categories).where("categories.lft >= :lft AND categories.rgt <= :rgt", {:lft => cat.lft, :rgt=> cat.rgt})
   end
 
   #def remove_empty_texts

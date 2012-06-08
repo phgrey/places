@@ -32,7 +32,8 @@ DashboardMy::Application.routes.draw do
       #resources :tasks
 
     end
-    match 'category/:id' => 'offers#index', :as => :category
+    match '*caturlpath' => 'categories#show', :as => :category, :format => false, :constraints => {:caturlpath => /[a-z0-9\-\/]+/}
+    #:constraints=>lambda{|req| !req.path.match(/\.(png|jpg|css|js)$/)
 
     root :to => 'offers#index'
   end

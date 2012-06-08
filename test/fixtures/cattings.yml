@@ -1,0 +1,2 @@
+#l = Category.leaves
+#Offer.all.each{|o| o.categories << l.sample(2) }

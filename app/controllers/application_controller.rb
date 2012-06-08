@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def generate_cats
-    @cat_tree = Category.roots
+    @cat_tree = Category.all
   end
 
   def default_url_options(options={})

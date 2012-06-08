@@ -1,0 +1,7 @@
+c = Category.create(:title => 'У на все')
+aa = Category.create(:title => 'Academic Affairs').move_to_child_of(c)
+bb = Category.create(:title => 'Student Affairs').move_to_child_of(c)
+zz = Category.create(:title => 'Bitches').move_to_child_of(aa)
+yy = Category.create(:title => 'Alfa-dogs').move_to_child_of(zz)
+yy = Category.create(:title => 'Beta-dogs')
+yy = Category.create(:title => 'Котопсы').move_to_child_of(zz)
