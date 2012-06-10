@@ -1,5 +1,6 @@
 #= require twitter/bootstrap/bootstrap-dropdown
 #= require twitter/bootstrap/bootstrap-tab
+#= require twitter/bootstrap/bootstrap-collapse
 
 
 jQuery ->
@@ -7,7 +8,7 @@ jQuery ->
 #  $(".alert-message").alert()
 #  $(".tabs").button()
 #  $(".carousel").carousel()
-#  $(".collapse").collapse()
+  $(".collapse").collapse()
 #  $(".modal").modal()
 #  $("a[rel=popover]").popover()
 #  $(".navbar").scrollspy()

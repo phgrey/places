@@ -1,4 +1,8 @@
 @import "twitter/bootstrap/bootstrap";
+body { 
+	padding-top: 60px;
+	padding-left: 20px;
+}
 
 body {
     padding-top: 60px;
@@ -12,11 +16,34 @@ body {
     margin:20px;
 }
 // import responsive layout
-@import "twitter/bootstrap/responsive";
-/*@import "twitter/bootstrap/alerts";*/
 
-// Your custom stylesheets goes here (override Less here)
-//this is for the will_paginate gem
+@import "twitter/bootstrap/responsive";
+
+// Set the correct sprite paths
+@iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
+@iconWhiteSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings-white.png');
+
+// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
+// Note: If you use asset_path() here, your compiled boostrap_and_overrides.css will not 
+//       have the proper paths. So for now we use the absolute path.
+@fontAwesomeEotPath: '/assets/fontawesome-webfont.eot';
+@fontAwesomeWoffPath: '/assets/fontawesome-webfont.woff';
+@fontAwesomeTtfPath: '/assets/fontawesome-webfont.ttf';
+@fontAwesomeSvgPath: '/assets/fontawesome-webfont.svg';
+
+// Font Awesome
+@import "fontawesome";
+
+// Your custom LESS stylesheets goes here
+//
+// Since bootstrap was imported above you have access to its mixins which
+// you may use and inherit here
+//
+// If you'd like to override bootstrap's own variables, you can do so here as well
+// See http://twitter.github.com/bootstrap/less.html for their names and documentation
+//
+// Example:
+// @linkColor: #ff0000;
 .pagination{
     .box-shadow(0 1px 2px rgba(0,0,0,.05));
     border-left: 1px solid #ddd;
@@ -46,34 +73,34 @@ body {
 fieldset.make-me-tabs > .tabbable label{cursor: pointer;}
 @media (min-width: 480px){
     fieldset.make-me-tabs > .tabbable{
-        > ul.nav-tabs{
-            width:140px;
-            border-bottom: 0;
-            float: left;
-            margin-right: 19px;
-            border-right: 1px solid #ddd;
+> ul.nav-tabs{
+      width:140px;
+      border-bottom: 0;
+      float: left;
+      margin-right: 19px;
+      border-right: 1px solid #ddd;
 
-            > li {
-                float: none;
-                > a {
-                    min-width: 74px;
-                    margin-bottom: 3px;
-                    margin-right: -1px;
-                    .border-radius(4px 0 0 4px);
-                }
-                > a:hover{
-                    border-color: @grayLighter #ddd @grayLighter @grayLighter;
-                }
-            }
-            > li.active{
-                a, a:hover {
-                    border-color: #ddd transparent #ddd #ddd;
-                    *border-right-color: @white
-                }
-            }
-        }
+> li {
+      float: none;
+> a {
+      min-width: 74px;
+      margin-bottom: 3px;
+      margin-right: -1px;
+      .border-radius(4px 0 0 4px);
+  }
+> a:hover{
+      border-color: @grayLighter #ddd @grayLighter @grayLighter;
+  }
     }
-}
+> li.active{
+      a, a:hover {
+          border-color: #ddd transparent #ddd #ddd;
+          *border-right-color: @white
+      }
+  }
+    }
+    }
+    }
 .form-horizontal legend + fieldset.make-me-tabs {
     margin-top: 18px;
     -webkit-margin-top-collapse: separate;
