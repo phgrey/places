@@ -10,10 +10,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120607225135) do
+ActiveRecord::Schema.define(:version => 20120611204433) do
 
   create_table "categories", :force => true do |t|
-    t.string   "name"
+    t.string   "title"
     t.string   "slug"
     t.integer  "parent_id"
     t.integer  "lft"
@@ -32,10 +32,21 @@ ActiveRecord::Schema.define(:version => 20120607225135) do
     t.integer "cattable_id"
     t.string  "cattable_type"
     t.integer "category_id"
+    t.string  "category_type", :default => "Category", :null => false
   end
 
-  add_index "cattings", ["category_id"], :name => "index_cattings_on_category_id"
+  add_index "cattings", ["category_id", "category_type"], :name => "index_cattings_on_category_id_and_category_type"
   add_index "cattings", ["cattable_id", "cattable_type"], :name => "index_cattings_on_cattable_id_and_cattable_type"
+
+  create_table "cities", :force => true do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.string   "lang",       :default => "ru"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  add_index "cities", ["lang", "slug"], :name => "index_cities_on_lang_and_slug", :unique => true
 
   create_table "offers", :force => true do |t|
     t.text     "description"

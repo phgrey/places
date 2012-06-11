@@ -5,7 +5,8 @@ class Offer < ActiveRecord::Base
   #has_one :text, :foreign_key => 'item_id', :conditions => {:item_type => 'Offer', :lang=> I18n.locale}
   #has_and_belongs_to_many :categories, :uniq => true, :polymorphic => true, :as => :cattable
   has_many :cattings, :as => :cattable
-  has_many :categories, :through => :cattings
+  has_many :categories, :through => :cattings, :source => :category, :source_type => 'Category'
+  has_many :cities, :through => :cattings, :source => :category, :source_type => 'City'
 
   acts_as_taggable
 

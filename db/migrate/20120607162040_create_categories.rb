@@ -7,7 +7,7 @@ class CreateCategories < ActiveRecord::Migration
       t.integer :lft
       t.integer :rgt
       t.integer :depth # this is optional.
-      t.string :lang
+      t.string :lang, :default => 'ru'
       t.timestamps
     end
     add_index :categories, [:lang, :slug], :unique => true
