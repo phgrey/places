@@ -1,44 +1,16 @@
 DashboardMy::Application.routes.draw do
-  resources :places
-
-  #get "habred/new"
-  #
-  #get "habred/create"
-  #
-  #get "habred/remove"
-
-  resources :test
   match 'parse/:action/(:id)' => 'parse'
 
   scope "(:locale)", :locale => Regexp.new(I18n.available_locales.join('|')) do
     devise_for :users, :sign_out_via => [ :get ], :controllers => { :omniauth_callbacks => "users/omniauth" }
     #devise_for :users, :sign_out_via => [ :get ], :controllers => { :omniauth_callbacks => "users/omniauth", :registrations => "users/registrations" }
     resources :users, :only => [:index, :show]
-    #match "offers?s=:search" => redirect {|params| "/offers/search/#{params[search]}"}
-    #post "offers*other" => redirect {|params| "/offers/search/#{params[:s]}"}
-    #match "/tags/(:tag)" => redirect("/offers/%{tag}")
 
-    resource :habred, :only => [:edit, :update], :module => "users"
-
-
-    resources :offers do
-      collection do
-        #get 'search'
-        get 'search/(:search)' => 'offers#search', :as => 'search'
-        get 'tag/:tag' => 'offers#tag', :as => 'tag'
-      end
-    end
-
-
-    resources :tags, :only => :index do
-      #resources :offers, :only => :index, :action => :tag
-      #resources :tasks
-
-    end
-    match '*caturlpath' => 'categories#show', :as => :category, :format => false, :constraints => {:caturlpath => /[a-z0-9\-\/]+/}
     #:constraints=>lambda{|req| !req.path.match(/\.(png|jpg|css|js)$/)
 
-    root :to => 'offers#index'
+    resources :places
+    match '*caturlpath' => 'categories#show', :as => :category, :format => false, :constraints => {:caturlpath => /[a-z0-9\-\/]+/}
+    root :to => 'places#index'
   end
 
 

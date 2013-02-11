@@ -19,6 +19,7 @@
 jQuery ->
   if $(window).width() > 768
     $('.masonry').masonry({itemSelector: '.span4'}).masonry 'reload'
+### we will need this when tabs will be needed on forms
   $('fieldset.make-me-tabs').each (num)->
     errs = $(@).find('.control-group').hide().filter('.error').length > 0
     par=$('<div>', {class:'tabbable control-group'})
@@ -31,6 +32,7 @@ jQuery ->
     $(@).find('.controls').appendTo(div).addClass('tab-pane').each (i)->
       $(@).attr({'id':'t'+num+'_'+i})
     .first().addClass('active')
-
+    par.find('.help-inline').appendTo(div)
     par.insertBefore($(@).find('.control-group').first()).tab "show"
+###
 

@@ -1,7 +1,0 @@
-<h2>Tag: <%= @tag.name %></h2>
-<% @offers = @tag.offers %>
-<% if(@offers.count > 0) %>
-    <%= render 'offers/list' %>
-<% else %>
-    Sorry, no offers matched your criteria
-<% end %>

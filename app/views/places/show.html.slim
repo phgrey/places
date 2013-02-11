@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @place.title
+p
+  strong Lang:
+  = @place.lang
+p
+  strong City:
+  = @place.city_id
+p
+  strong Contacts:
+  = @place.contacts
+p
+  strong Content:
+  = @place.content
+
+= link_to 'Edit', edit_place_path(@place)
+'|
+= link_to 'Back', places_path

@@ -5,29 +5,31 @@ gem 'rails', '>= 3.2.2'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+#setting Postgres instead of MySQL
+#gem 'handlersocket'
+#gem 'thinking-sphinx', '>= 2.0.10'
+#gem 'mysql2'
+gem 'pg'
 
 gem 'json'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails'
   gem 'coffee-rails'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer'
-
   gem 'uglifier', '>= 1.0.3'
-# Twitter bootstrap
-  #gem 'less-rails-bootstrap'
-  gem 'twitter-bootstrap-rails'# , :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+  gem 'twitter-bootstrap-rails'
+  gem 'therubyracer'
+  gem "less-rails"
 end
 
 group :test, :development do
   gem "rspec-rails"
-  gem 'ruby-debug-ide'
-  gem 'ruby-debug'
+#Debugging on 1.9.3
+  #gem 'ruby-debug-ide'
+  #gem 'ruby-debug19'
+  #gem 'linecache19'#, :git => 'git://github.com/mark-moseley/linecache'
+  #gem 'ruby-debug-base19x'#, '~> 0.11.30.pre4'
 end
 
 gem 'jquery-rails'
@@ -56,14 +58,11 @@ gem 'slim-rails' , :group => 'development'
 #breadcrumbs
 gem 'crummy'
 
-gem 'acts-as-taggable-on'
+#gem 'acts-as-taggable-on'
 
 #gem 'time_diff'
 
 gem 'will_paginate'
-gem 'handlersocket'
-
-gem 'thinking-sphinx', '>= 2.0.10'
 
 gem 'russian'
 

@@ -1,6 +1,5 @@
-require "md5"
-#require 'open-uri'
-require 'net/http'
+require "digest/md5"
+
 
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
@@ -10,14 +9,13 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :options,  :lang,
-      :send_me_email, :habred,
+      :send_me_email, :photo,
       :offers, :offers_attributes, :socials_attributes, :texts, :texts_attributes
 
 
   #after_initialize :init
 
-  has_many :offers
-  accepts_nested_attributes_for :offers
+  has_many :places
 
   has_many :socials
   accepts_nested_attributes_for :socials, :allow_destroy => true
@@ -74,24 +72,13 @@ class User < ActiveRecord::Base
 
   def email=(new_email)
     super
-    hash = MD5::md5(new_email.downcase).to_s
+    hash = Digest::MD5.hexdigest(new_email.downcase)
     self.photo||='http://www.gravatar.com/avatar/'+ hash + '.jpg'
   end
 
-  def set_habred(value, habr_login)
-    if(value && !self.habred?)
-      code = get_code
-      found = nil
-      #open("http://habrahabr.ru/users/#{habr_login}/"){|webpage| found= webpage[code] }
-      webpage = Net::HTTP.get("habrahabr.ru", "/users/#{habr_login}/")
-      found= webpage[code]
-      return false unless found
-    end
-    update_attributes(:name => habr_login, :habred => value)
-  end
 
   def get_code
-    MD5::md5(self.inspect).to_s
+    Digest::MD5.hexdigest(self.inspect).to_s
   end
 
 end

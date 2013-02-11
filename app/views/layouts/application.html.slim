@@ -27,12 +27,11 @@ html lang="en"
             span.icon-bar
           a.brand href="/" DashboardMy
           .container-fluid.nav-collapse
-            form.navbar-search.pull-left action=search_offers_path
+            form.navbar-search.pull-left
               input.search-query.span4 type="text" placeholder=t(:Search) name="s" value=@search
             ul.nav.pull-right
-              li= link_to t("Offers.many"), offers_path
+              li= link_to t("Places.many"), places_path
               li= link_to t("Users"), users_path
-              li= link_to t("Tags"), tags_path
               li.divider-vertical
               li.dropdown
                 a.dropdown-toggle{style="cursor: pointer;" data-toggle="dropdown"}
@@ -71,7 +70,6 @@ html lang="en"
           .well.sidebar-nav
             ul.nav.nav-list
               li.nav-header Sidebar
-              li= link_to "New Offer", new_offer_path
               li= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter)
               li= link_to "Sign in with Vkontakte", user_omniauth_authorize_path(:vkontakte)
               li= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)

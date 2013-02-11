@@ -1,0 +1,125 @@
+@import "twitter/bootstrap/bootstrap";
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+.sidebar-nav {
+    padding: 9px 0;
+}
+
+//@import "twitter/bootstrap/tabs";
+
+
+//this is for the will_paginate gem
+.pagination{
+    .box-shadow(0 1px 2px rgba(0,0,0,.05));
+    border-left: 1px solid #ddd;
+    float: right;
+    em, span, a{
+        float: left;
+        padding: 0 14px;
+        line-height: (@baseLineHeight * 2) - 2;
+        text-decoration: none;
+        border: 1px solid #ddd;
+        border-left-width: 0;
+    }
+    em.current{
+        color: @grayLight;
+        cursor: default;
+        background-color: #f5f5f5;
+    }
+    span.disabled{
+        color: @grayLight;
+        background-color: transparent;
+        cursor: default;
+    }
+}
+
+.navbar-search .search-query{border-radius: 3px;}
+
+/*we will need this with the tabs in forms*/
+/*fieldset.make-me-tabs > .tabbable label{cursor: pointer;float:none;width: auto;}
+@media (min-width: 480px){
+    fieldset.make-me-tabs > .tabbable{
+        > ul.nav-tabs{
+            width:160px;
+            border-bottom: 0;
+            float: left;
+            margin-right: 19px;
+            border-right: 1px solid #ddd;
+
+            > li {
+                float: none;
+                > a {
+                    min-width: 74px;
+                    margin-bottom: 3px;
+                    margin-right: -1px;
+                    .border-radius(4px 0 0 4px);
+                }
+                > a:hover{
+                    border-color: @grayLighter #ddd @grayLighter @grayLighter;
+                }
+            }
+            > li.active{
+                a, a:hover {
+                    border-color: #ddd transparent #ddd #ddd;
+                    *border-right-color: @white
+                }
+            }
+        }
+        .controls.tab-pane{margin-left:0;}
+    }
+}
+
+.form-horizontal legend + fieldset.make-me-tabs {
+    margin-top: 18px;
+    -webkit-margin-top-collapse: separate;
+}
+*/
+
+@media (min-width: 768px){
+    textarea.big-area{width:335px;}
+}
+@media (max-width: 768px) and (min-width: 480px){
+    textarea.big-area{width:290px;}
+}
+
+/*
+@media (max-width: 480px) {}
+@media (min-width: 768px) and (max-width: 980px){}
+@media (min-width: 768px){}
+@media (min-width: 1200px) {}
+*/
+
+
+@import "twitter/bootstrap/responsive";
+
+// Set the correct sprite paths
+@iconSpritePath: asset-path("twitter/bootstrap/glyphicons-halflings");
+@iconWhiteSpritePath: asset-path("twitter/bootstrap/glyphicons-halflings-white");
+
+// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
+// Note: If you use asset_path() here, your compiled bootstrap_and_overrides.css will not
+//       have the proper paths. So for now we use the absolute path.
+@fontAwesomeEotPath: asset-path("fontawesome-webfont.eot");
+@fontAwesomeEotPath_iefix: asset-path("fontawesome-webfont.eot#iefix");
+@fontAwesomeWoffPath: asset-path("fontawesome-webfont.woff");
+@fontAwesomeTtfPath: asset-path("fontawesome-webfont.ttf");
+@fontAwesomeSvgPath: asset-path("fontawesome-webfont.svg");
+
+// Font Awesome
+@import "fontawesome";
+
+// Glyphicons
+//@import "twitter/bootstrap/sprites.less";
+
+// Your custom LESS stylesheets goes here
+//
+// Since bootstrap was imported above you have access to its mixins which
+// you may use and inherit here
+//
+// If you'd like to override bootstrap's own variables, you can do so here as well
+// See http://twitter.github.com/bootstrap/customize.html#variables for their names and documentation
+//
+// Example:
+// @linkColor: #ff0000;
