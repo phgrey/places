@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120611204433) do
+ActiveRecord::Schema.define(:version => 20120727153923) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(:version => 20120611204433) do
     t.integer  "lft"
     t.integer  "rgt"
     t.integer  "depth"
-    t.string   "lang"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "lang",       :default => "ru"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   add_index "categories", ["lang", "slug"], :name => "index_categories_on_lang_and_slug", :unique => true
@@ -48,12 +48,52 @@ ActiveRecord::Schema.define(:version => 20120611204433) do
 
   add_index "cities", ["lang", "slug"], :name => "index_cities_on_lang_and_slug", :unique => true
 
+  create_table "downloads", :force => true do |t|
+    t.integer  "parsetask_id"
+    t.string   "url"
+    t.text     "responce"
+    t.text     "headers"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "downloads", ["parsetask_id"], :name => "index_downloads_on_parsetask_id"
+
   create_table "offers", :force => true do |t|
     t.text     "description"
     t.integer  "hours"
     t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "parsetasks", :force => true do |t|
+    t.string   "source"
+    t.string   "lang"
+    t.integer  "parent_id"
+    t.string   "external_ids"
+    t.string   "path"
+    t.integer  "children_found"
+    t.integer  "item_id"
+    t.string   "item_type"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "parsetasks", ["lang", "item_id", "item_type"], :name => "index_parsetasks_on_lang_and_item_id_and_item_type"
+  add_index "parsetasks", ["source", "lang", "path"], :name => "index_parsetasks_on_source_and_lang_and_path"
+
+  create_table "places", :force => true do |t|
+    t.string   "title"
+    t.string   "lang"
+    t.string   "latlng"
+    t.integer  "city_id"
+    t.text     "contacts"
+    t.text     "content"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "socials", :force => true do |t|

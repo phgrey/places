@@ -82,6 +82,8 @@ gem 'the_sortable_tree'
 
 gem 'friendly_id'
 
+gem 'nokogiri'
+
 #gem 'handsock'
 # To use debugger
 

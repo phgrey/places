@@ -7,6 +7,7 @@ class Offer < ActiveRecord::Base
   has_many :cattings, :as => :cattable
   has_many :categories, :through => :cattings, :source => :category, :source_type => 'Category'
   has_many :cities, :through => :cattings, :source => :category, :source_type => 'City'
+  has_many :parsetasks, :as => :item
 
   acts_as_taggable
 

@@ -19,4 +19,4 @@ p= link_to offer.description, offer_path(offer)
       =link_to tag.name, tag_offers_path(tag.name)
     -offer.categories.each do |cat|
       '
-      =link_to cat.title, category_path(cat)
+      =link_to cat.title, category_path(:caturlpath=>cat.caturlpath)

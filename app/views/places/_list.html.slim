@@ -1,0 +1,5 @@
+.row-fluid.masonry
+  - @places.each do |place|
+    .span4
+      .well
+        =render 'places/item', :place => place

@@ -58,7 +58,8 @@ module DashboardMy
     config.assets.version = '1.0'
 
 
-    config.autoload_paths += %W(#{config.root}/lib/extras)
+    config.autoload_paths += %W(#{config.root}/lib/extras #{config.root}/app/models/**/)
+    #config.autoload_paths += %W(#{config.root}/lib/extras #{config.root}/lib)
     #config.autoload_paths += %W(#{config.root}/lib/extras #{config.root}/handsock/lib)
   end
 end

@@ -1,4 +1,6 @@
 DashboardMy::Application.routes.draw do
+  resources :places
+
   #get "habred/new"
   #
   #get "habred/create"
@@ -6,6 +8,7 @@ DashboardMy::Application.routes.draw do
   #get "habred/remove"
 
   resources :test
+  match 'parse/:action/(:id)' => 'parse'
 
   scope "(:locale)", :locale => Regexp.new(I18n.available_locales.join('|')) do
     devise_for :users, :sign_out_via => [ :get ], :controllers => { :omniauth_callbacks => "users/omniauth" }
