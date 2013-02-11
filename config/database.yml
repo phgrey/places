@@ -23,7 +23,7 @@ test:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: dashboard_test
+  database: dashboard
   username: postgres
   password: postgres
 

@@ -25,6 +25,8 @@ end
 
 group :test, :development do
   gem "rspec-rails"
+#needed by RubyMine to run specs http://youtrack.jetbrains.com/issue/RUBY-12632
+  gem 'rspec', :require => false
 #Debugging on 1.9.3
   #gem 'ruby-debug-ide'
   #gem 'ruby-debug19'

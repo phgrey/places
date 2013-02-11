@@ -13,9 +13,13 @@ class Parsetask < ActiveRecord::Base
   belongs_to :place, :polymorphic => true, :foreign_key => 'item_id', :foreign_type => 'item_type'
 
   def download_and_parse
-    send('parse_'+get_level.to_s, downloads.create_by_url(get_url))
+    parse downloads.create_by_url(get_url)
   rescue
     false
+  end
+
+  def parse responce
+    send('parse_'+get_level.to_s, responce)
   end
 
   def parse_siblings

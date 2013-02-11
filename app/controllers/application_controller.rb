@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def generate_cats
-    @cat_tree = Category.all
+    @cat_tree = Category.where(:lang => I18n.locale)
   end
 
   def default_url_options(options={})

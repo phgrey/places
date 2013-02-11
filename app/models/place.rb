@@ -8,4 +8,7 @@ class Place < ActiveRecord::Base
   belongs_to :city
   has_many :parsetasks, :as => :item
 
+  def self.by_cat cat
+    joins(:categories).where("categories.lft >= :lft AND categories.rgt <= :rgt", {:lft => cat.lft, :rgt=> cat.rgt})
+  end
 end

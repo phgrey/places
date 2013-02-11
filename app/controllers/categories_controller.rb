@@ -4,6 +4,6 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.bycaturlpath(params[:caturlpath])
     redirect_to category_path :caturlpath => @category.caturlpath  unless @category.caturlpath == params[:caturlpath]
-    @offers = Offer.by_cat(@category)
+    @places = Place.by_cat(@category)
   end
 end
