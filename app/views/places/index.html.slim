@@ -1,1 +1,4 @@
-= render 'list'
+= will_paginate @places
+h1 =@name
+= render 'places/list', :places => @places
+= will_paginate @places

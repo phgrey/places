@@ -18,7 +18,7 @@ html lang="en"
     link href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114"
 
   body
-    .navbar.navbar-fixed-top
+    .navbar.navbar-fixed-top.navbar-inverse
       .navbar-inner
         .container-fluid
           a.btn.btn-navbar data-target=".nav-collapse" data-toggle="collapse"
@@ -31,53 +31,15 @@ html lang="en"
               input.search-query.span4 type="text" placeholder=t(:Search) name="s" value=@search
             ul.nav.pull-right
               li= link_to t("Places.many"), places_path
-              li= link_to t("Users"), users_path
+
               li.divider-vertical
-              li.dropdown
-                a.dropdown-toggle{style="cursor: pointer;" data-toggle="dropdown"}
-                  i.icon-user.icon-white
-                  = user_signed_in? ? current_user.name : t('Guest')
-                  b.caret
-                ul.dropdown-menu
-                  -if (user_signed_in?)
-                    li: a href=destroy_user_session_path
-                      i.icon-off
-                      '
-                      |Logout
-                    li: a href=edit_user_registration_path
-                      i.icon-pencil
-                      '
-                      |Profile
-                  -else
-                    li: a href=new_user_session_path
-                      i.icon-user
-                      '
-                      |Login
-                    li: a href=new_user_registration_path
-                      i.icon-plus
-                      '
-                      |Register
-                  li.divider
-                  li: a href="/"
-                    i.icon-home
-                    '
-                    |Main page
-              li.lang =link_to_unless_current 'en', {:locale => :en}
-              li.lang =link_to_unless_current 'ru', {:locale => :ru}
+              -I18n.available_locales.each do |loc|
+                li.lang =link_to_unless_current loc, {:locale => loc}
     .container-fluid
       .row-fluid
         .span3
           .well.sidebar-nav
-            ul.nav.nav-list
-              li.nav-header Sidebar
-              li= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter)
-              li= link_to "Sign in with Vkontakte", user_omniauth_authorize_path(:vkontakte)
-              li= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
-              li= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2)
-              li= link_to "Sign in with GitHub", user_omniauth_authorize_path(:github)
-              li= link_to "Link 3", "/path3"
-          .well.sidebar-nav
-            = just_tree( @cat_tree)
+            = just_tree( @category.nil? ? Category.roots : @category.open_tree)
         .span9
           .row-fluid
             .pull-right
@@ -88,8 +50,8 @@ html lang="en"
             .pull-left.alert.no-margin
               == render_crumbs
           = yield
-      hr
-      footer
-        p &copy; Company 2012
+    #footer
+      .container
+        p.muted.credit &copy; Company 2012
     / Placed at the end of the document so the pages load faster
     = javascript_include_tag "application"

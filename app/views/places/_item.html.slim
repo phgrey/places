@@ -1,7 +1,7 @@
 p.no-margin
   span.small.pull-right
-    =' place.title
     a.icon-star-empty
+  =' place.title
 hr.no-margin
 p= place.contacts
 -if(place.categories.count > 0)
@@ -9,6 +9,7 @@ p= place.contacts
     span.small.pull-right
       = time_ago_in_words(place.created_at)+t(:ago)
     i.icon-tags
+    '
+    ='link_to place.city.title, city_path(place.city)
     -place.categories.each do |cat|
-      '
-      =link_to cat.title, category_path(:caturlpath=>cat.caturlpath)
+      ='link_to cat.title, category_path(:caturlpath=>cat.caturlpath)

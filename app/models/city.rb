@@ -1,5 +1,7 @@
 class City < ActiveRecord::Base
   extend FriendlyId
+  only_current_language
+
   friendly_id :title, :use => :slugged
 
 

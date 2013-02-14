@@ -1,5 +1,6 @@
 class Category < ActiveRecord::Base
   acts_as_nested_set
+  only_current_language
 
   extend FriendlyId
   friendly_id :title, :use => :slugged
@@ -16,5 +17,14 @@ class Category < ActiveRecord::Base
 
   def self.bycaturlpath url
     self.find(url.split('/').last)
+  end
+
+  def open_tree
+    [self_and_siblings, root? ? children : Category.roots ].flatten.uniq
+  end
+
+  #TODO: add a bug to github awesome nested set
+  def self_and_siblings
+    super.where :lang=> I18n.locale
   end
 end

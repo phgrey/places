@@ -1,7 +1,0 @@
-h2 =t 'I_am_from_habr.title'
-p == t 'I_am_from_habr.desription', :code => @code
-= simple_form_for(@user, :url => habred_path, :html => {:class => 'form-horizontal' }) do |u|
-  = u.error_notification
-  = u.input :name, :required => true, :autofocus => true
-  = u.input :habred
-  = u.button :wrapped

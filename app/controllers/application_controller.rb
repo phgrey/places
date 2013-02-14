@@ -23,6 +23,11 @@ class ApplicationController < ActionController::Base
   { :locale => I18n.locale }
   end
 
+  def add_crumb(title, url)
+    super title, url
+    @name = title
+  end
+
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => I18n.t(exception.message)
   end

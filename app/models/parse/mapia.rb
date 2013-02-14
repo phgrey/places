@@ -53,40 +53,6 @@ class Parse::Mapia < Parsetask
     }
   end
 
-
-
-=begin
-  def params_city_by_main
-    {
-        'LANG' => lang
-    }
-  end
-
-  def params_category_by_city
-    {
-        'LANG' => lang,
-        'CITY_ID' => external_id
-    }
-  end
-
-  def params_category_by_category
-    {
-        'LANG' => lang,
-        'CITY_ID' => parent.external_id,
-        'CATEGORY_ID' => external_id
-    }
-  end
-
-  def params_place_by_category
-    {
-        'LANG' => lang,
-        'CITY_ID' => parent.parent.external_id,
-        'CATEGORY_ID' => external_id,
-        'PAGE_NR' => 1
-    }
-  end
-=end
-
   def parse_city_by_main responce
     Nokogiri::HTML(responce).css('ul#city_list li a').map do |link|
       #get 'vinn-itsa' from '/ru/vinn-itsa/remember_city?return=%2Fru%2Fvinnitsa'
@@ -170,7 +136,7 @@ class Parse::Mapia < Parsetask
 
   def save_simple(item, params = {})
     params = params.merge({:title =>  item[:title], :lang =>lang})
-    get_child_type.where(params).first ||
+    get_child_type.unscoped.where(params).first ||
       get_child_type.create(params)
   end
   alias_method :save_city_by_main, :save_simple
@@ -193,7 +159,7 @@ class Parse::Mapia < Parsetask
       :city_id => parent.parent.item_id,
     }
 
-    pl = get_child_type.where(params).first ||
+    pl = get_child_type.unscoped.where(params).first ||
         get_child_type.create(params.merge({:contacts => item[:contacts]}).merge(Decoder.decodeGeoHash(item[:latlng])))
     pl.categories << category
     pl
