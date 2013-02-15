@@ -56,8 +56,7 @@ html lang="en"
                 .alert.alert-success.no-margin= notice
               - if(alert)
                 .alert.alert-error= alert
-            .pull-left.alert.no-margin
-              == render_crumbs
+            == render_breadcrumbs
           = yield
     #footer
       .container

@@ -58,7 +58,7 @@ gem 'slim'
 #we will need this only for generators
 gem 'slim-rails' , :group => 'development'
 #breadcrumbs
-gem 'crummy'
+#gem 'crummy'
 
 #gem 'acts-as-taggable-on'
 

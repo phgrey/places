@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def add_crumb(title, url)
-    super title, url
+    add_breadcrumb title, url
     @name = title
   end
 
