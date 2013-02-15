@@ -7,8 +7,8 @@ class Category < ActiveRecord::Base
 
   attr_accessible :title, :parent_id, :slug, :lang
   has_many :cattings
-  has_many :offers, :through => :cattings, :source => :cattable, :source_type => 'Offer'
   has_many :places, :through => :cattings, :source => :cattable, :source_type => 'Place'
+  has_many :cities, :through => :cattings, :source => :cattable, :source_type => 'City'
   has_many :parsetasks, :as => :item
 
   def caturlpath
@@ -20,7 +20,7 @@ class Category < ActiveRecord::Base
   end
 
   def open_tree
-    [self_and_siblings, root? ? children : Category.roots ].flatten.uniq
+    [self_and_siblings, root? ? children : self.class.roots ].flatten.uniq
   end
 
   #TODO: add a bug to github awesome nested set

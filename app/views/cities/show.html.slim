@@ -1,2 +1,3 @@
-h1 Cities#show
-p Find me in app/views/cities/show.html.slim
+h1 =@name
+.row-fluid.masonry
+  = just_tree(@city.categories, render_module: CityRenderTreeHelper, city: @city)

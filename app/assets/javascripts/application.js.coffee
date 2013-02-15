@@ -18,7 +18,7 @@
 
 jQuery ->
   if $(window).width() > 768
-    $('.masonry').masonry({itemSelector: '.span4'}).masonry 'reload'
+    $('.masonry').masonry({itemSelector: '.masonry > div'}).masonry 'reload'
 ### we will need this when tabs will be needed on forms
   $('fieldset.make-me-tabs').each (num)->
     errs = $(@).find('.control-group').hide().filter('.error').length > 0

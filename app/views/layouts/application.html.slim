@@ -30,8 +30,15 @@ html lang="en"
             form.navbar-search.pull-left
               input.search-query.span4 type="text" placeholder=t(:Search) name="s" value=@search
             ul.nav.pull-right
-              li= link_to t("Places.many"), places_path
-
+              /li= link_to t("Places.many"), places_path
+              li.dropdown
+                a.dropdown-toggle{style="cursor: pointer;" data-toggle="dropdown"}
+                  i.icon-user.icon-white
+                  '
+                  = @city.nil? ? t('Ukraine') : @city.title
+                  b.caret
+                ul.dropdown-menu
+                  == city_lis @city
               li.divider-vertical
               -I18n.available_locales.each do |loc|
                 li.lang =link_to_unless_current loc, {:locale => loc}
@@ -39,7 +46,9 @@ html lang="en"
       .row-fluid
         .span3
           .well.sidebar-nav
-            = just_tree( @category.nil? ? Category.roots : @category.open_tree)
+            ul.dropdown-menu
+
+            ul = just_tree( @category.nil? ? Category.roots : @category.open_tree)
         .span9
           .row-fluid
             .pull-right

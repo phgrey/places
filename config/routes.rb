@@ -1,17 +1,17 @@
 DashboardMy::Application.routes.draw do
 
-  match 'parse/:action/(:id)' => 'parse'
-
   scope "(:locale)", :locale => Regexp.new(I18n.available_locales.join('|')) do
     #devise_for :users, :sign_out_via => [ :get ], :controllers => { :omniauth_callbacks => "users/omniauth", :registrations => "users/registrations" }
     #resources :users, :only => [:index, :show]
 
     #:constraints=>lambda{|req| !req.path.match(/\.(png|jpg|css|js)$/)
 
-    resources :cities, :only => [:show]
-    resources :places
+    resources :cities, :only => [:show] do
+      match '*caturlpath' => 'categories#show', :as => :category, :format => false, :constraints => {:caturlpath => /[a-z0-9\-\/]+/}
+    end
+
     match '*caturlpath' => 'categories#show', :as => :category, :format => false, :constraints => {:caturlpath => /[a-z0-9\-\/]+/}
-    root :to => 'places#index'
+    root :to => 'cities#index'
   end
 
 
