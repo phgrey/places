@@ -41,13 +41,11 @@ html lang="en"
                   == city_lis @city
               li.divider-vertical
               -I18n.available_locales.each do |loc|
-                li.lang =link_to_unless_current loc, {:locale => loc}
+                li.lang = I18n.locale==loc ? loc : link_to(loc, root_url(loc))
     .container-fluid
       .row-fluid
         .span3
           .well.sidebar-nav
-            ul.dropdown-menu
-
             ul = just_tree( @category.nil? ? Category.roots : @category.open_tree)
         .span9
           .row-fluid

@@ -5,6 +5,8 @@ class CitiesController < ApplicationController
   end
 
   def index
+    @cities = City.limit(10).where(:lang => I18n.locale)
+    @cities2 = City.limit(10)
 
   end
 end

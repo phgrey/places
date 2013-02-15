@@ -1,6 +1,7 @@
 DashboardMy::Application.routes.draw do
 
   scope "(:locale)", :locale => Regexp.new(I18n.available_locales.join('|')) do
+    root :to => 'cities#index'
     #devise_for :users, :sign_out_via => [ :get ], :controllers => { :omniauth_callbacks => "users/omniauth", :registrations => "users/registrations" }
     #resources :users, :only => [:index, :show]
 
@@ -11,7 +12,6 @@ DashboardMy::Application.routes.draw do
     end
 
     match '*caturlpath' => 'categories#show', :as => :category, :format => false, :constraints => {:caturlpath => /[a-z0-9\-\/]+/}
-    root :to => 'cities#index'
   end
 
 

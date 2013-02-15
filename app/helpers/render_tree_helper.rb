@@ -28,7 +28,7 @@ module RenderTreeHelper
       def show_link
         node = options[:node]
         ns   = options[:namespace]
-        url  = h.category_path(:locale =>node.lang, :caturlpath => node.caturlpath)
+        url  = h.category_path(:locale =>I18n.locale, :caturlpath => node.caturlpath)
         title_field = options[:title]
 
         "<h4>#{ h.link_to(node.send(title_field), url) }</h4>"

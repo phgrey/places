@@ -11,7 +11,8 @@ class CategoriesController < ApplicationController
       add_crumb @city.title, url_for(@city)
     end
     @category.self_and_ancestors.each{|cat|
-      add_crumb cat.title, category_path(:caturlpath => cat.caturlpath)
+      add_crumb cat.title, @city.nil? ? category_path(:caturlpath => cat.caturlpath)
+        : city_category_path(:city_id =>@city.friendly_id, :caturlpath=>cat.caturlpath)
     }
     respond_to do |format|
       format.html { render :template => "places/index" }

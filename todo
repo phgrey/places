@@ -1,85 +1,41 @@
-+1. Nested forms
-    +1.1 Offer-desc (описания по языкам вынести в отдельную таблицу)
-    + Доделать красоту - http://twitter.github.com/bootstrap/components.html#navs
-    + Валидация - хотя бы одно описание на форме должно быть заполнено
-    + 1.2 User-offer (добавить возможность создавать офферы незарегистрированным пользователям)
-2. Довести локализацию до ума
-    2.1 для locale=default не показывать в ссылке. Возможно, поддомены?
-    +2.2 сделать языки кросс-сайт настраиваемыми
-3. Оптимизировать теги и texts (выставить enum и сократить описание до varchar(511))
-    to_read - http://guides.rubyonrails.org/migrations.html#active-record-and-referential-integrity
-    Ctrl+F "execute <<-SQL"ь польз
-5. Сделать социал логин
-    +5.1 Непосредственно логин
-        simple way:
-            https://github.com/plataformatec/devise/wiki/OmniAuth%3A-Overview
-        hard way:
-            http://railscasts.com/episodes/235-omniauth-part-1
-            http://railscasts.com/episodes/236-omniauth-part-2
-    5.2 Сделать красивые иконки, надписи (войти через / подключить)
-    +5.3 Перепроверить (unit-тесты?) ситуации с пересекающимися email
-    5.4 Запоминать (кука?) как именно пользователь вошел на сайт
-+6. Поместить формы регистрации и авторизации на 1 страницу
-7. Письма на мыло с возможностью отписаться от рассылки
-    +7.1 письма отправляются
-        http://railscasts.com/episodes/61-sending-email
-    7.2 Предпочитаемый язык для пользователей - определение при регистрации
-    7.3 Возможность для пользователей указать do-not send me email
-+8. use CanCan
-    to_read - http://www.tonyamoyal.com/2010/07/28/rails-authentication-with-devise-and-cancan-customizing-devise-controllers/
-9. title - http://railscasts.com/episodes/30-pretty-page-title
-    9.1 было бы здорово генерировать title на основании breadcrumbs
-+10. Профиль пользователя с редактированием
-    +10.1 Добавить фото (Gravatar) + получение фото при social login
-        -10.1.1 facebook
-        +10.1.2 прочие (кроме gitHub, там граватар)
-    +10.2 Добавить предпочитаемый язык
-    +10.3 Добавить галочку "не получать письма"
-    +10.4 Добавить в профиле список подключенных соцсетей и напротив каждой - галочка "отображать связь"
-    +10.5 Сделать пользователям возможность подтверждать, что они с habra
-    +10.6 Био - 2-язычное описание пользователя
-
-11. Кнопку mark/unmark на оффер,
-    11.1 Публичный список помеченных пользователем полей
-    11.2 письмо на мыло при  получении пометки
--12. use vim - forget about it
-    12.1 ctags
-    http://blog.bojica.com/2010/06/27/ctags-and-vim-for-ruby-on-rails-development
-    # cd ~/work/coworkers.my
-    # ctags -R --exclude=.git --exclude=log -f tags * /var/lib/gems/1.8/gems/
-13. Автокомплит в поиск
-
-ПЕРЕД:
-
-1. Handlersocket
-    to_read - http://stackoverflow.com/questions/4286690/writing-drivers-for-activerecordrails-3
-    to use - https://bitbucket.org/winebarrel/ruby-handlersocket/src/c19841e47ea2/README
-    to use - https://github.com/quake/active_record_handlersocket
-
-    /var/lib/gems/1.8/gems/arel-3.0.0/lib/arel/visitors/depth_first.rb :129 - это то, как разбирать собранный объект запроса (arel)
-    /var/lib/gems/1.8/gems/activerecord-3.2.1/lib/active_record/connection_adapters/abstract/database_statements.rb : select_all вот сюда надо врезаться
-2. Разобраться с серверами
-    +2.1 to read - http://guides.rubyonrails.org/rails_on_rack.html
-    2.2 выбрать сервер для запуска рельс на живую
-    2.2 попробовать запуск через nginx
-3. Перевести все на ruby 1.9
-    http://beginrescueend.com/
-4. Профайлинг, нагрузочное, функциональное и unit-тестирования
-    https://github.com/rspec/rspec-rails
-    http://guides.rubyonrails.org/testing.html
-    http://guides.rubyonrails.org/performance_testing.html
-    ------------------------------------------------
-    http://ruby-prof.rubyforge.org/
-+5. Что такое middleware? (Впервые увидел на OmniAuth)
-6. Что такое has_many ... :inverse_of
-
-
-ПОСЛЕ:
-
-1. Сделать многоязычное описание на форме с переключалкой не через js
-2. Сделать выборку только по тем полям, которые введены (т.е. в списке офферов на английском не показывать те, у которых не заполнено аншлийское описание)
-3. Для пользователей, зарегистрировавшихся через социал отправлять уведомления
-    http://blog.assimov.net/post/1635826492/facebook-integration-with-omniauth-and-devise-on-rails
-4. Избавиться от devise
-    http://railscasts.com/episodes/304-omniauth-identity
-5.
+0. На странице на англ показываются ордеры на русском. И города. И категории (кеширование????)
+0. При запуске сервера rails s наблюдаю пустой список places
+1. SEO
+    - склонения городов (из Хатамании) всунуть в
+        - title для бредкрамбов
+        - title для деревьев категорий
+        - h1
+        - title для ссылок на places/item
+    - постепенное отображение контента (типа лобавояется понемногу)
+    - микроформаты
+    - структура url
+    - языки по доменам
+    - города по субдоменам
+    - тэги h1..h4 на странице
+2. Дизайн
+    - логотип
+    - footer
+    - страница города
+    - левое дерево категорий + выделение текущей категории
+    - places/_item
+    - иконки категорий
+    - masonry - выравнять правый край
+    - список городов в navbar
+3. Тексты городов и категорий
+    - в базе
+    - mercury
+    - главная
+4. Поиск
+5. Страница places/show
+    - карта
+    - отзывы?
+6. Страницы (из Coworkers)
+7. Оптимизация
+    - default_scope: includes и :joins
+    - индексы Postgres
+        https://github.com/nesquena/query_reviewer
+    - кеширование в рельсах
+        http://guides.rubyonrails.org/caching_with_rails.html
+8. Мониторинг
+    - http://newrelic.com/
+9. Переход на соответствующую страницу другого языка на странице
