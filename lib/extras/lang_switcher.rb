@@ -19,9 +19,5 @@ module I18nActiveRecordSwitcher
     @ars.each{|ar| ar.set_default_scope}
     loc
   end
-
-  def ars
-    @ars
-  end
 end
 

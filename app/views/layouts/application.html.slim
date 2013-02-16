@@ -37,7 +37,7 @@ html lang="en"
                   '
                   = @city.nil? ? t('Ukraine') : @city.title
                   b.caret
-                ul.dropdown-menu
+                ul.dropdown-menu.columns3
                   == city_lis @city
               li.divider-vertical
               -I18n.available_locales.each do |loc|

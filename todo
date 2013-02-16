@@ -20,7 +20,8 @@
     - places/_item
     - иконки категорий
     - masonry - выравнять правый край
-    - список городов в navbar
+    + список городов в navbar
+        (не так) https://groups.google.com/forum/?fromgroups=#!topic/twitter-bootstrap/IK6QcJpLMXI
 3. Тексты городов и категорий
     - в базе
     - mercury
@@ -39,3 +40,4 @@
 8. Мониторинг
     - http://newrelic.com/
 9. Переход на соответствующую страницу другого языка на странице
+10. Переводы
