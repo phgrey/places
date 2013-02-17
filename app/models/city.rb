@@ -10,6 +10,7 @@ class City < ActiveRecord::Base
   has_many :cattings, :as => :cattable
   has_many :categories, :through => :cattings, :source => :category, :source_type => 'Category'
   has_many :places
+  has_one :text, :as => :item
   has_many :parsetasks, :as => :item
 
   #protected
