@@ -77,6 +77,7 @@
         },
         gutterWidth: 0,
         isRTL: false,
+        autoGutter: false,
         isFitWidth: false,
         containerStyle: {
             position: 'relative'
@@ -128,7 +129,7 @@
                 y: y ? parseInt( y, 10 ) : 0
             };
 
-            this.isFluid = this.options.columnWidth && typeof this.options.columnWidth === 'function';
+            this.isFluid = this.options.isFluid || this.options.columnWidth && typeof this.options.columnWidth === 'function';
 
             // add masonry class first time around
             var instance = this;
@@ -189,7 +190,7 @@
                     unusedCols++;
                 }
                 // fit container to columns that have been used;
-                containerSize.width = (this.cols - unusedCols) * this.columnWidth - this.options.gutterWidth;
+                containerSize.width = (this.cols - unusedCols) * this.columnWidth - this.gutterWidth;
             }
             this.styleQueue.push({ $el: this.element, style: containerSize });
 
@@ -225,18 +226,25 @@
                 containerWidth = container.width();
 
             // use fluid columnWidth function if there
-            this.columnWidth = this.isFluid ? this.options.columnWidth( containerWidth ) :
+            this.columnWidth = typeof this.options.columnWidth === 'function' ? this.options.columnWidth( containerWidth ) :
                 // if not, how about the explicitly set option?
                 this.options.columnWidth ||
                     // or use the size of the first item
-                    this.$bricks.outerWidth(true) ||
+                    this.$bricks.outerWidth() ||
                     // if there's no items, use size of container
                     containerWidth;
 
-            this.columnWidth += this.options.gutterWidth;
-
-            this.cols = Math.floor( ( containerWidth + this.options.gutterWidth ) / this.columnWidth );
+            this.cols = Math.floor( ( containerWidth ) / this.columnWidth );
             this.cols = Math.max( this.cols, 1 );
+            if(this.cols > 1){
+                this.gutterWidth = this.options.autoGutter ?
+                    (containerWidth-this.columnWidth*this.cols)/(this.cols-1)
+                    :(typeof this.options.gutterWidth === 'function'
+                        ? this.options.gutterWidth( containerWidth )
+                        : this.options.gutterWidth)
+
+                this.columnWidth += this.gutterWidth;
+            }
 
         },
 

@@ -18,7 +18,17 @@
 
 jQuery ->
   if $(window).width() > 768
-    $('.masonry').masonry({itemSelector: '.masonry > div'}).masonry 'reload'
+    $('.masonry').masonry({
+      itemSelector: '.masonry > div'
+      autoGutter: true
+      isFluid: true
+#      theese functions can be only used to save the width and margin percents for the span4 (3x-column)
+#      columnWidth: ( w ) -> w*0.31623931623931625
+#      gutterWidth: ( w ) -> w*0.02564102564102564
+    isResizable: true
+    })#.masonry 'reload'#this is working correctly for the first time for now
+
+
 ### we will need this when tabs will be needed on forms
   $('fieldset.make-me-tabs').each (num)->
     errs = $(@).find('.control-group').hide().filter('.error').length > 0

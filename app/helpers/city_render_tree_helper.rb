@@ -8,7 +8,7 @@ module CityRenderTreeHelper
 
         node = options[:node]
         node.root? ? "
-          <div class='span3'><div class='well'>
+          <div class='span3'><div class='well well-small'>
             <h4>#{ show_link }</h4>
             #{ children }
           </div></div>

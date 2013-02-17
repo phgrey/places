@@ -19,9 +19,11 @@
     - левое дерево категорий + выделение текущей категории
     - places/_item
     - иконки категорий
-    - masonry - выравнять правый край
+    + masonry - выравнять правый край
     + список городов в navbar
         (не так) https://groups.google.com/forum/?fromgroups=#!topic/twitter-bootstrap/IK6QcJpLMXI
+    + masonry on page resize
+        http://masonry.desandro.com/docs/options.html
 3. Тексты городов и категорий
     - в базе
     - mercury
