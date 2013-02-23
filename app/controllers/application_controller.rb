@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   #include TheSortableTreeController::Rebuild
   protect_from_forgery
+  include ApplicationHelper
 
   before_filter :set_locale
   before_filter :generate_cats
@@ -20,12 +21,13 @@ class ApplicationController < ActionController::Base
   def default_url_options(options={})
     #I18n.locale == I18n.default_locale ? {} : { :locale => I18n.locale }
     #{ :locale => I18n.locale == I18n.default_locale ? '' : I18n.locale }
-  { :locale => I18n.locale }
+    #{:locale => I18n.locale }.merge options
+    {:locale => I18n.locale }
   end
 
-  def add_crumb(title, url)
-    add_breadcrumb title, url
-    @name = title
+  def add_crumb(title, url=nil, options={})
+    add_breadcrumb title, url, options
+    @name = options[:title] || title
   end
 
   rescue_from CanCan::AccessDenied do |exception|

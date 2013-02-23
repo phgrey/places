@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120727153923) do
+ActiveRecord::Schema.define(:version => 20130223000103) do
+
+  create_table "cases", :force => true do |t|
+    t.string  "source",     :limit => 100,                         :null => false
+    t.string  "lang",       :limit => 2,   :default => "ru",       :null => false
+    t.string  "r",          :limit => 100,                         :null => false
+    t.string  "d",          :limit => 100,                         :null => false
+    t.string  "v",          :limit => 100,                         :null => false
+    t.string  "t",          :limit => 100,                         :null => false
+    t.string  "p",          :limit => 100,                         :null => false
+    t.string  "po",         :limit => 100,                         :null => false
+    t.string  "where",      :limit => 100,                         :null => false
+    t.string  "to",         :limit => 100,                         :null => false
+    t.string  "from",       :limit => 100,                         :null => false
+    t.string  "count",      :limit => 10,  :default => "singular", :null => false
+    t.integer "parent_id",                                         :null => false
+    t.integer "error_code",                                        :null => false
+  end
 
   create_table "categories", :force => true do |t|
     t.string   "title"

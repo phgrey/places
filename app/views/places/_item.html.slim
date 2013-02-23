@@ -12,4 +12,5 @@ p= place.contacts
     '
     ='link_to place.city.title, city_path(place.city)
     -place.categories.each do |cat|
-      ='link_to cat.title, city_category_path(:city_id =>place.city.friendly_id, :caturlpath=>cat.caturlpath)
+      ='link_to_category cat, place.city
+      //='city_category

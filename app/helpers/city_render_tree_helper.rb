@@ -17,11 +17,7 @@ module CityRenderTreeHelper
       end
 
       def show_link
-        node = options[:node]
-        url  = h.city_category_path(:city_id =>options[:city].friendly_id, :caturlpath => node.caturlpath)
-        title_field = options[:title]
-
-        "#{ h.link_to(node.send(title_field), url) }"
+        "#{ h.link_to_category(options[:node], options[:city]) }"
       end
 
       def children

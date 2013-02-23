@@ -13,6 +13,10 @@ class City < ActiveRecord::Base
   has_one :text, :as => :item
   has_many :parsetasks, :as => :item
 
+  def in_city
+    Case.where(:source => title).pluck('"where"')[0] || title
+  end
+
   #protected
   def give_categories_by_places
     condition = places.joins(:categories).select("lft, rgt").uniq
