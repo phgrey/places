@@ -19,7 +19,7 @@ class City < ActiveRecord::Base
 
   #protected
   def give_categories_by_places
-    condition = places.joins(:categories).select("lft, rgt").uniq
+    condition = places.unscoped.joins(:categories).select("lft, rgt").uniq
       .map{|cat| ['(lft <', cat.lft.to_i+1,'AND', cat.rgt.to_i-1, '< rgt)'].join ' ' }
       .join(' OR ')
     self.categories = condition == '' ? [] : Category.where(condition).uniq
