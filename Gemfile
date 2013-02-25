@@ -28,10 +28,23 @@ group :test, :development do
 #needed by RubyMine to run specs http://youtrack.jetbrains.com/issue/RUBY-12632
   gem 'rspec', :require => false
 #Debugging on 1.9.3
+#http://stackoverflow.com/questions/8378277/cannot-use-ruby-debug19-with-1-9-3-p0
+#http://blog.wyeworks.com/2011/11/1/ruby-1-9-3-and-ruby-debug/
+#http://rubyforge.org/frs/?group_id=8883
+#  gem 'ruby-debug-ide'
+#  gem 'ruby-debug19'#, '0.11.6'
+#  gem 'ruby_core_source'#, '0.1.5'
+#  gem 'linecache19'#, '0.5.13'
+#  gem 'ruby-debug-base19'#, '0.11.26'
+
+  #gem 'linecache19', '0.5.13'#, :path => "~/.rvm/gems/ruby-1.9.3-p125/gems/linecache19-0.5.13"
+  gem 'ruby-debug-base19x', '0.11.30.pre10'
+  gem 'ruby-debug-ide', '0.4.17.beta9'
+
   #gem 'ruby-debug-ide'
-  #gem 'ruby-debug19'
+  #gem 'debugger'
+
   #gem 'linecache19'#, :git => 'git://github.com/mark-moseley/linecache'
-  #gem 'ruby-debug-base19x'#, '~> 0.11.30.pre4'
 end
 
 gem 'jquery-rails'
