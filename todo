@@ -9,8 +9,15 @@
     - title для остальных ссылок
     - микроформаты
     - структура url
-    - языки по доменам
-    - города по субдоменам
+        http://stackoverflow.com/questions/15053242/rails-routing-domain-wildcard
+        - языки по доменам
+            http://guides.rubyonrails.org/i18n.html#setting-the-locale-from-the-domain-name
+        - города по субдоменам
+            http://railscasts.com/episodes/221-subdomains-in-rails-3
+            http://asciicasts.com/episodes/221-subdomains-in-rails-3
+            http://habrahabr.ru/post/129688/
+        - heroku
+            https://devcenter.heroku.com/articles/custom-domains#wildcard_domains
     - тэги h1..h4 на странице
 2. Дизайн
     - логотип

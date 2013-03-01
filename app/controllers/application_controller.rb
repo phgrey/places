@@ -7,11 +7,9 @@ class ApplicationController < ActionController::Base
   before_filter :generate_cats
 
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
-    #folowing check is moved to the routes.rb
-    #parsed_locale = params[:locale] || I18n.default_locale
-    #I18n.locale = I18n.available_locales.include?(parsed_locale.to_sym) ? parsed_locale  : nil
-    add_crumb I18n.t("Home"), root_path
+    I18n.locale = LOCALE_DOMAINS.key(params[:locale_domain]) || I18n.default_locale
+
+    #add_crumb I18n.t("Home"), root_path
   end
 
   def generate_cats
@@ -22,7 +20,7 @@ class ApplicationController < ActionController::Base
     #I18n.locale == I18n.default_locale ? {} : { :locale => I18n.locale }
     #{ :locale => I18n.locale == I18n.default_locale ? '' : I18n.locale }
     #{:locale => I18n.locale }.merge options
-    {:locale => I18n.locale }
+    {:locale_domain => LOCALE_DOMAINS[I18n.locale] }
   end
 
   def add_crumb(title, url=nil, options={})

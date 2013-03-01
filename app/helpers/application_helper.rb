@@ -1,7 +1,7 @@
 module ApplicationHelper
   def city_lis selected_city
     City.all.map { |city|
-      url = url_for (city)
+      url = url_for ({:city_id => city.friendly_id})
       cls = city == selected_city ? 'active' : ''
       "<li class=\"#{cls}\">#{link_to( city.title, url)}</li>"
     }.unshift("<li class=\"#{selected_city.nil? ? 'active' : ''}\">#{link_to( t('Ukraine'), '/')}</li>").join('')
@@ -15,8 +15,8 @@ module ApplicationHelper
   def category_in_city_params cat, city=nil
     [
         cat.title,
-        (city.nil? ? category_path(:caturlpath=>cat.caturlpath)
-          : city_category_path(:city_id =>city.friendly_id, :caturlpath=>cat.caturlpath)),
+        (city.nil? ? url_for(:caturlpath=>cat.caturlpath)
+          : url_for(:city_id =>city.friendly_id, :caturlpath=>cat.caturlpath)),
         {:title => category_in_city(cat, city)}
     ]
   end

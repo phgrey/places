@@ -1,5 +1,21 @@
 DashboardMy::Application.routes.draw do
 
+
+  domain ':city_id.*locale_domain', :locale_domain => Regexp.new(LOCALE_DOMAINS.values.join('|')) do
+    root :to => "cities#show"
+    match '*caturlpath' => 'categories#show', :as => :city_category,
+          :format => false, :constraints => {:caturlpath => /[a-z0-9\-\/]+/}
+  end
+
+  domain '*locale_domain', :locale_domain => Regexp.new(LOCALE_DOMAINS.values.join('|')) do
+    root :to => 'cities#index'
+    match '*caturlpath' => 'categories#show', :as => :category,
+          :format => false, :constraints => {:caturlpath => /[a-z0-9\-\/]+/}
+  end
+  #match 'gondon/:id/:test' => "cities#test"
+
+
+=begin
   scope "(:locale)", :locale => Regexp.new(I18n.available_locales.join('|')) do
     root :to => 'cities#index'
     #devise_for :users, :sign_out_via => [ :get ], :controllers => { :omniauth_callbacks => "users/omniauth", :registrations => "users/registrations" }
@@ -7,12 +23,14 @@ DashboardMy::Application.routes.draw do
 
     #:constraints=>lambda{|req| !req.path.match(/\.(png|jpg|css|js)$/)
 
-    resources :cities, :only => [:show] do
-      match '*caturlpath' => 'categories#show', :as => :category, :format => false, :constraints => {:caturlpath => /[a-z0-9\-\/]+/}
-    end
+    #resources :cities, :only => [:show] do
+    #  match '*caturlpath' => 'categories#show', :as => :category, :format => false, :constraints => {:caturlpath => /[a-z0-9\-\/]+/}
+    #end
 
     match '*caturlpath' => 'categories#show', :as => :category, :format => false, :constraints => {:caturlpath => /[a-z0-9\-\/]+/}
   end
+=end
+
 
 
   # http://guides.rubyonrails.org/routing.html
