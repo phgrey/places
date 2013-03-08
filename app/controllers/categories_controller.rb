@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
     if(params[:city_id])
       @city = City.find(params[:city_id])
       @places = @places.where(:city_id =>@city.id)
-      add_crumb @city.title, url_for(:city_id =>@city.friendly_id)
+      add_crumb @city.title, complicated_url(:city_id =>@city.friendly_id)
     end
     @category.self_and_ancestors.each{|cat|
       add_crumb *category_in_city_params(cat, @city)

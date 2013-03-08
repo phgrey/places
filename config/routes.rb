@@ -1,18 +1,10 @@
 DashboardMy::Application.routes.draw do
 
-
-  domain ':city_id.*locale_domain', :locale_domain => Regexp.new(LOCALE_DOMAINS.values.join('|')) do
-    root :to => "cities#show"
-    match '*caturlpath' => 'categories#show', :as => :city_category,
-          :format => false, :constraints => {:caturlpath => /[a-z0-9\-\/]+/}
-  end
-
-  domain '*locale_domain', :locale_domain => Regexp.new(LOCALE_DOMAINS.values.join('|')) do
+  domain do
     root :to => 'cities#index'
     match '*caturlpath' => 'categories#show', :as => :category,
           :format => false, :constraints => {:caturlpath => /[a-z0-9\-\/]+/}
   end
-  #match 'gondon/:id/:test' => "cities#test"
 
 
 =begin

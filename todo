@@ -10,9 +10,9 @@
     - микроформаты
     - структура url
         http://stackoverflow.com/questions/15053242/rails-routing-domain-wildcard
-        - языки по доменам
+        + языки по доменам
             http://guides.rubyonrails.org/i18n.html#setting-the-locale-from-the-domain-name
-        - города по субдоменам
+        + города по субдоменам
             http://railscasts.com/episodes/221-subdomains-in-rails-3
             http://asciicasts.com/episodes/221-subdomains-in-rails-3
             http://habrahabr.ru/post/129688/
@@ -42,8 +42,9 @@
     + default_scope: includes и :joins
     - индексы Postgres
         https://github.com/nesquena/query_reviewer
-    - кеширование в рельсах
+    + кеширование в рельсах
         http://guides.rubyonrails.org/caching_with_rails.html
+    - профайлер в рельсах
 10. Переводы
 
 -------------------------------------------------------------------
@@ -53,3 +54,4 @@
 8. Мониторинг
     - http://newrelic.com/
 9. Переход на соответствующую страницу другого языка на странице
+12. Механизм для "поиграться" на страницу списка

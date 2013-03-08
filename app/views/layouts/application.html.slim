@@ -41,7 +41,7 @@ html lang="en"
                   == city_lis @city
               li.divider-vertical
               -I18n.available_locales.each do |loc|
-                li.lang = I18n.locale==loc ? loc : link_to(loc, url_for(:locale_domain => LOCALE_DOMAINS[loc.to_s]))
+                li.lang = I18n.locale==loc ? loc : link_to(loc, complicated_url(:locale => loc))
     .container-fluid
       .row-fluid
         .span3

@@ -10,6 +10,6 @@ p= place.contacts
       = time_ago_in_words(place.created_at)+t(:ago)
     i.icon-tags
     '
-    ='link_to place.city.title, url_for(:city_id => place.city.friendly_id)
+    ='link_to place.city.title, complicated_url(:city_id => place.city.friendly_id)
     -place.categories.each do |cat|
       ='link_to_category cat, place.city
