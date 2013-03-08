@@ -18,10 +18,11 @@ gem 'json'
 group :assets do
   gem 'coffee-rails'
   gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails'
   gem 'therubyracer'
   gem "less-rails"
 end
+
+gem 'twitter-bootstrap-rails'
 
 group :test, :development do
   gem "rspec-rails"
