@@ -4,10 +4,8 @@ module Domain
     def matches?(request)
       if request.subdomain.present? && request.subdomain != 'www'
         request.path_parameters[:city_id] = request.subdomain
-        dom = request.host.gsub request.subdomain + '.', ''
-      else
-        dom = request.host
       end
+      dom = request.host.gsub Regexp.new('^'+request.subdomain+'\.'), ''
 
       I18n.locale = LOCALE_DOMAINS.key(dom) || I18n.default_locale
 
