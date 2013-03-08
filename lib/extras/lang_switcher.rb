@@ -15,8 +15,9 @@ module I18nActiveRecordSwitcher
   end
 
   def locale=(loc)
+    return loc if loc == locale
     loc = super loc
-    @ars.each{|ar| ar.set_default_scope}
+    @ars.each{|ar| ar.set_default_scope} unless @ars.nil?
     loc
   end
 end
