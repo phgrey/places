@@ -2,3 +2,7 @@ development:
   ru: ruboard.my
   en: enboard.my
   ua: uaboard.my
+production:
+  ru: ruplaces.tk
+  en: niceplaces.tk
+  ua: uaplaces.tk

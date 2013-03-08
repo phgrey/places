@@ -28,7 +28,7 @@ module ApplicationHelper
   def complicated_url options={}
     return options if options.kind_of?(String)
     if options.kind_of?(Hash)
-      options[:host] = [options.delete(:city_id), LOCALE_DOMAINS[(options.delete(:locale)||I18n.locale).to_s]].keep_if{|item|item}.join '.'
+      options[:host] = [options.delete(:city_id)||'www', LOCALE_DOMAINS[(options.delete(:locale)||I18n.locale).to_s]].keep_if{|item|item}.join '.'
       options.except(:host).keys.count > 0 ?  category_url(options) : root_url(options)
     else
       url_for(options)
