@@ -27,6 +27,7 @@ class Parsetask < ActiveRecord::Base
   end
 
   def process
+    I18n.locale = lang
     items_found = download_and_parse
     return update_attributes :children_found => -1 unless items_found
     items_found.each{|item_data|
