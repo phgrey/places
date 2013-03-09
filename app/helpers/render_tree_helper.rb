@@ -13,30 +13,17 @@ module RenderTreeHelper
 
       def render_node(h, options)
         @h, @options = h, options
-
-        node = options[:node]
-        "
-          <li>
-            <div class='item'>
-              #{ show_link }
-            </div>
-            #{ children }
-          </li>
-        "
+        cls = !options[:selected].nil? && (options[:node].id == options[:selected].id) ? 'active' : ''
+        "<li class='#{cls}'>#{ show_link }#{ children }</li> "
       end
 
       def show_link
-        node = options[:node]
-        ns   = options[:namespace]
-        url  = h.category_path(:caturlpath => node.caturlpath)
-        title_field = options[:title]
-
-        "<h4>#{ h.link_to(node.send(title_field), url) }</h4>"
+        h.link_to_category(options[:node], options[:city])
       end
 
       def children
         unless options[:children].blank?
-          "<ol>#{ options[:children] }</ol>"
+          '<ul>' + options[:children] + '</ul>'
         end
       end
 

@@ -20,7 +20,11 @@ class Category < ActiveRecord::Base
   end
 
   def open_tree
-    [self_and_siblings, root? ? children : self.class.roots ].flatten.uniq
+    self.class.open_tree self
+  end
+
+  def self.open_tree selected
+    selected.nil? ? roots : where(parent_column_name => [nil, selected.parent_id, selected.id].uniq)
   end
 
   #TODO: add a bug to github awesome nested set

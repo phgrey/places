@@ -8,7 +8,7 @@
         - установка created_at
     - title для остальных ссылок
     - микроформаты
-    - структура url
+    + структура url
         http://stackoverflow.com/questions/15053242/rails-routing-domain-wildcard
         + языки по доменам
             http://guides.rubyonrails.org/i18n.html#setting-the-locale-from-the-domain-name
@@ -18,7 +18,10 @@
             http://habrahabr.ru/post/129688/
         + heroku
             https://devcenter.heroku.com/articles/custom-domains#wildcard_domains
+            http://my.dot.tk/cgi-bin/domainpanel.taloha
+            https://fdevelop.com/manager
     - тэги h1..h4 на странице
+    - google analitycs, yandex tracker
 2. Дизайн
     - логотип
     - footer
@@ -35,9 +38,6 @@
     + в базе
     - главная
     - редактор
-5. Страница places/show
-    - карта
-    - отзывы?
 7. Оптимизация
     + default_scope: includes и :joins
     - индексы Postgres
@@ -46,7 +46,7 @@
         http://guides.rubyonrails.org/caching_with_rails.html
     - профайлер в рельсах
 10. Переводы
-
+11. Откуда http://uzhgorod.ruboard.my/razvlecheniya/teatr
 -------------------------------------------------------------------
 6. Страницы (из Coworkers)
 4. Поиск
@@ -55,3 +55,6 @@
     - http://newrelic.com/
 9. Переход на соответствующую страницу другого языка на странице
 12. Механизм для "поиграться" на страницу списка
+5. Страница places/show
+    - карта
+    - отзывы?

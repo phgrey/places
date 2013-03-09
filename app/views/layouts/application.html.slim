@@ -25,7 +25,8 @@ html lang="en"
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.brand href="/" DashboardMy
+          a.brand href=complicated_url
+            |DashboardMy
           .container-fluid.nav-collapse
             form.navbar-search.pull-left
               input.search-query.span4 type="text" placeholder=t(:Search) name="s" value=@search
@@ -45,8 +46,8 @@ html lang="en"
     .container-fluid
       .row-fluid
         .span3
-          .well.sidebar-nav
-            ul = just_tree( @category.nil? ? Category.roots : @category.open_tree)
+          ul.nav.nav-tabs.nav-stacked
+            = just_tree(@city.nil? ? Category.open_tree(@category) : @city.categories.open_tree(@category), :city => @city, :selected=>@category)
         .span9
           .row-fluid
             .pull-right
