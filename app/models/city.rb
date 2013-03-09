@@ -19,13 +19,14 @@ class City < ActiveRecord::Base
 
   #protected
   def give_categories_by_places
-    condition = places.unscoped.joins(:categories).select("lft, rgt").uniq
-      .map{|cat| ['(lft <', cat.lft.to_i+1,'AND', cat.rgt.to_i-1, '< rgt)'].join ' ' }
-      .join(' OR ')
+    sql = ActiveRecord::Base.connection()
+    cats = sql.execute(places.joins(:categories).select([:lft, :rgt, 'places.id']).uniq.to_sql)
+    condition = cats.map{|cat|
+        ['(lft <', cat['lft'].to_i+1,'AND', cat['rgt'].to_i-1, '< rgt)'].join ' '
+      }.join(' OR ')
     self.categories = condition == '' ? [] : Category.where(condition).uniq
 #this block seems to be more quick, but I do not like it
 =begin
-    sql = ActiveRecord::Base.connection()
     sql.execute("DELETE FROM cattings WHERE cattable_id = #{id} AND cattable_type = 'City' AND category_type = 'Category'")
     return if condition == ''
     sql.execute("INSERT INTO cattings (category_id, category_type, cattable_id, cattable_type)

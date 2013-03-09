@@ -1,5 +1,5 @@
 require "lang_switcher"
-ActiveRecord::Base.send(:extend, ActiveRecordLangFilter)
+ActiveRecord::Base.send(:extend, InterActiveRecord::LangFilter)
 
 require "domain"
 ActionDispatch::Routing::Mapper.send(:include, Domain::Mapper)
