@@ -19,8 +19,9 @@ class City < ActiveRecord::Base
 
   #protected
   def give_categories_by_places
+    I18n.locale = lang
     sql = ActiveRecord::Base.connection()
-    cats = sql.execute(places.joins(:categories).select([:lft, :rgt, 'places.id']).uniq.to_sql)
+    cats = sql.execute(places.joins(:categories).select([:lft, :rgt, 'places.created_at']).uniq.to_sql)
     condition = cats.map{|cat|
         ['(lft <', cat['lft'].to_i+1,'AND', cat['rgt'].to_i-1, '< rgt)'].join ' '
       }.join(' OR ')
