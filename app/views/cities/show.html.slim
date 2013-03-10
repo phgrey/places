@@ -2,5 +2,5 @@ h1 =@name
 -if(@city.text)
   .row-fluid
     = @city.text.text
-.row-fluid.masonry
+.row-fluid.masonry.city-tree
   = just_tree(@city.categories, render_module: CityRenderTreeHelper, city: @city)

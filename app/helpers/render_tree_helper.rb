@@ -13,8 +13,8 @@ module RenderTreeHelper
 
       def render_node(h, options)
         @h, @options = h, options
-        cls = !options[:selected].nil? && (options[:node].id == options[:selected].id) ? 'active' : ''
-        "<li class='#{cls}'>#{ show_link }#{ children }</li> "
+        cls = !options[:selected].nil? && ((options[:node].id == options[:selected].id) || (options[:node].id == options[:selected].parent_id)) ? 'active' : ''
+        "<li class='#{cls}'>#{ show_link }#{ children }</li>"
       end
 
       def show_link

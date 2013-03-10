@@ -6,9 +6,14 @@
         p.no-margin
           span.small.pull-right
             a.icon-star-empty
-          =' place.title
+          strong
+            =' place.title
         hr.no-margin
-        p= place.contacts
+        -place.contacts.each do |key, value|
+          p.no-margin  title={t('Contacts.'+key.to_s)}
+            i class={'icon-'+key.to_s}
+            '
+            =  value.to_s
         p.no-margin
           span.small.pull-right
             = time_ago_in_words(place.created_at)+t(:ago)

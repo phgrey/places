@@ -24,12 +24,10 @@
     - google analitycs, yandex tracker
     - метатэги
 2. Дизайн
-    - логотип
-    - footer
-    - страница города
-    - левое дерево категорий + выделение текущей категории
-    - places/_item
-    - иконки категорий
+    + footer
+        норм отображается только при выключенном профайлере
+    + левое дерево категорий + выделение текущей категории
+    + places/_item
     + masonry - выравнять правый край
     + список городов в navbar
         (не так) https://groups.google.com/forum/?fromgroups=#!topic/twitter-bootstrap/IK6QcJpLMXI
@@ -41,16 +39,18 @@
     - редактор
 7. Оптимизация
     + default_scope: includes и :joins
-    + индексы Postgres
+    - индексы Postgres
         https://github.com/nesquena/query_reviewer
         https://tomafro.net/2009/08/using-indexes-in-rails-index-your-associations
         http://job-blog.bullgare.ru/2010/05/postgresql-explain/
+        http://wiki.postgresql.org/wiki/Using_EXPLAIN
     + кеширование в рельсах
         http://guides.rubyonrails.org/caching_with_rails.html
     + профайлер в рельсах
-
+        + http://railscasts.com/episodes/368-miniprofiler
+        - http://edge.rusrails.ru/performance-testing-rails-applications
 10. Переводы
-11. + Откуда
+11. + Пустые категории городов
     + http://uzhgorod.ruboard.my/razvlecheniya/teatr
     + http://uzhgorod.ruboard.my/magaziny/stroitelnye-magaziny
 -------------------------------------------------------------------
@@ -64,3 +64,7 @@
 5. Страница places/show
     - карта
     - отзывы?
+2. Дизайн:
+    - логотип
+    - иконки категорий
+    - страница города
