@@ -41,7 +41,7 @@ group :test, :development do
   #gem 'linecache19', '0.5.13'#, :path => "~/.rvm/gems/ruby-1.9.3-p125/gems/linecache19-0.5.13"
   gem 'ruby-debug-base19x', '0.11.30.pre10'
   gem 'ruby-debug-ide', '0.4.17.beta9'
-
+  gem 'rack-mini-profiler'
   #gem 'ruby-debug-ide'
   #gem 'debugger'
 

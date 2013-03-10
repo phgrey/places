@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130223000103) do
+ActiveRecord::Schema.define(:version => 20130309210359) do
 
   create_table "cases", :force => true do |t|
     t.string  "source",     :limit => 100,                         :null => false
@@ -114,6 +114,8 @@ ActiveRecord::Schema.define(:version => 20130223000103) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "places", ["lang", "created_at", "id", "city_id"], :name => "index_places_on_lang_and_created_at_and_id_and_city_id"
+
   create_table "socials", :force => true do |t|
     t.integer  "user_id",                                                      :null => false
     t.string   "provider",                                                     :null => false
@@ -126,23 +128,6 @@ ActiveRecord::Schema.define(:version => 20130223000103) do
 
   add_index "socials", ["external_id", "provider"], :name => "index_socials_on_external_id_and_provider", :unique => true
   add_index "socials", ["user_id", "public"], :name => "index_socials_on_user_id_and_public"
-
-  create_table "taggings", :force => true do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
-    t.string   "taggable_type"
-    t.integer  "tagger_id"
-    t.string   "tagger_type"
-    t.string   "context",       :limit => 128
-    t.datetime "created_at"
-  end
-
-  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
-
-  create_table "tags", :force => true do |t|
-    t.string "name"
-  end
 
   create_table "texts", :force => true do |t|
     t.text     "text"

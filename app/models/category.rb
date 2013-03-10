@@ -12,7 +12,9 @@ class Category < ActiveRecord::Base
   has_many :parsetasks, :as => :item
 
   def caturlpath
-    self_and_ancestors.map{|a| a.slug}.join("/")
+    #self_and_ancestors.map{|a| a.slug}.join("/")
+    #for two-levels will be enough
+    (root? ? '' : (parent.friendly_id + '/')) + friendly_id
   end
 
   def self.bycaturlpath url

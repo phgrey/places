@@ -1,15 +1,15 @@
+/unused for now
 p.no-margin
   span.small.pull-right
     a.icon-star-empty
   =' place.title
 hr.no-margin
 p= place.contacts
--if(place.categories.count > 0)
-  p.no-margin
-    span.small.pull-right
-      = time_ago_in_words(place.created_at)+t(:ago)
-    i.icon-tags
-    '
-    ='link_to place.city.title, complicated_url(:city_id => place.city.friendly_id)
-    -place.categories.each do |cat|
-      ='link_to_category cat, place.city
+p.no-margin
+  span.small.pull-right
+    = time_ago_in_words(place.created_at)+t(:ago)
+  i.icon-tags
+  '
+  ='link_to place.city.title, complicated_url(:city_id => place.city.friendly_id)
+  -place.categories.each do |cat|
+    ='link_to_category cat, place.city

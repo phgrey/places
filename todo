@@ -1,7 +1,7 @@
 1. SEO
     + склонения городов (из Хатамании) всунуть в
         + title для бредкрамбов
-        - title для деревьев категорий
+        + title для деревьев категорий
         + h1
         + title для ссылок на places/item
     + постепенное отображение контента (типа добавояется понемногу)
@@ -22,6 +22,7 @@
             https://fdevelop.com/manager
     - тэги h1..h4 на странице
     - google analitycs, yandex tracker
+    - метатэги
 2. Дизайн
     - логотип
     - footer
@@ -40,11 +41,14 @@
     - редактор
 7. Оптимизация
     + default_scope: includes и :joins
-    - индексы Postgres
+    + индексы Postgres
         https://github.com/nesquena/query_reviewer
+        https://tomafro.net/2009/08/using-indexes-in-rails-index-your-associations
+        http://job-blog.bullgare.ru/2010/05/postgresql-explain/
     + кеширование в рельсах
         http://guides.rubyonrails.org/caching_with_rails.html
-    - профайлер в рельсах
+    + профайлер в рельсах
+
 10. Переводы
 11. + Откуда
     + http://uzhgorod.ruboard.my/razvlecheniya/teatr

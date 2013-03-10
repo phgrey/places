@@ -2,4 +2,18 @@
   - places.each do |place|
     .span4
       .well.well-small
-        =render 'places/item', :place => place
+        /=render 'places/item', :place => place
+        p.no-margin
+          span.small.pull-right
+            a.icon-star-empty
+          =' place.title
+        hr.no-margin
+        p= place.contacts
+        p.no-margin
+          span.small.pull-right
+            = time_ago_in_words(place.created_at)+t(:ago)
+          i.icon-tags
+          '
+          ='link_to place.city.title, complicated_url(:city_id => place.city.friendly_id)
+          -place.categories.each do |cat|
+            ='link_to_category cat, place.city

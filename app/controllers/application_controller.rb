@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
 
   before_filter :main_crumb
-
+  #before_filter :miniprofiler unless Rails.env == 'production'
   #def default_url_options(options={})
   #end
 
@@ -20,6 +20,10 @@ class ApplicationController < ActionController::Base
   def add_crumb(title, url=nil, options={})
     add_breadcrumb title, url, options
     @name = options[:title] || title
+  end
+
+  def miniprofiler
+    Rack::MiniProfiler.authorize_request
   end
 end
 
