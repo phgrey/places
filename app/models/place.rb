@@ -10,7 +10,10 @@ class Place < ActiveRecord::Base
   has_many :parsetasks, :as => :item
 
   def self.by_cat cat
-    joins(:categories).where("categories.lft >= :lft AND categories.rgt <= :rgt", {:lft => cat.lft, :rgt=> cat.rgt})
+    condition = {cat.root? ? 'categories.parent_id' : 'categories.id' => cat.id}
+    joins(:categories).where(condition)
+    #above will be enough for the 2-level
+    #joins(:categories).where("categories.lft >= :lft AND categories.rgt <= :rgt", {:lft => cat.lft, :rgt=> cat.rgt})
   end
 
   def page(*)
