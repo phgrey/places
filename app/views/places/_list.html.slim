@@ -1,3 +1,5 @@
+/.row-fluid
+/  = places.to_sql
 .row-fluid.masonry
   - places.each do |place|
     .span4
@@ -10,7 +12,7 @@
             =' place.title
         hr.no-margin
         -place.contacts.each do |key, value|
-          p.no-margin  title={t('Contacts.'+key.to_s)}
+          p.no-margin  title=t('Contacts.'+key.to_s)
             i class={'icon-'+key.to_s}
             '
             =  value.to_s
