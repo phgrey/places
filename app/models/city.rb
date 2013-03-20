@@ -8,7 +8,7 @@ class City < ActiveRecord::Base
   attr_accessible :lang, :title, :slug
 
   has_many :cattings, :as => :cattable
-  has_many :categories, :through => :cattings, :source => :category, :source_type => 'Category'
+  has_many :categories, :through => :cattings
   has_many :places
   has_one :text, :as => :item
   has_many :parsetasks, :as => :item

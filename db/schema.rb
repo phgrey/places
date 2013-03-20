@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130309210359) do
+ActiveRecord::Schema.define(:version => 20130317011831) do
 
   create_table "cases", :force => true do |t|
     t.string  "source",     :limit => 100,                         :null => false
@@ -44,16 +44,16 @@ ActiveRecord::Schema.define(:version => 20130309210359) do
 
   add_index "categories", ["lang", "slug"], :name => "index_categories_on_lang_and_slug", :unique => true
   add_index "categories", ["lft"], :name => "index_categories_on_lft"
+  add_index "categories", ["parent_id"], :name => "index_categories_on_parent_id"
   add_index "categories", ["rgt"], :name => "index_categories_on_rgt"
 
   create_table "cattings", :force => true do |t|
     t.integer "cattable_id"
     t.string  "cattable_type"
     t.integer "category_id"
-    t.string  "category_type", :default => "Category", :null => false
   end
 
-  add_index "cattings", ["category_id", "category_type"], :name => "index_cattings_on_category_id_and_category_type"
+  add_index "cattings", ["category_id"], :name => "index_cattings_on_category_id"
   add_index "cattings", ["cattable_id", "cattable_type"], :name => "index_cattings_on_cattable_id_and_cattable_type"
 
   create_table "cities", :force => true do |t|
@@ -114,7 +114,7 @@ ActiveRecord::Schema.define(:version => 20130309210359) do
     t.datetime "updated_at", :null => false
   end
 
-  add_index "places", ["lang", "created_at", "id", "city_id"], :name => "index_places_on_lang_and_created_at_and_id_and_city_id"
+  add_index "places", ["lang", "id", "city_id"], :name => "index_places_on_lang_and_id_and_city_id"
 
   create_table "socials", :force => true do |t|
     t.integer  "user_id",                                                      :null => false

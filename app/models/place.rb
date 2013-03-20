@@ -1,11 +1,13 @@
 class Place < ActiveRecord::Base
   attr_accessible :city_id, :contacts, :content, :lang, :title, :latlng, :longitude, :latitude
   only_current_language
-  default_scope :include => [:categories, :city], :order => "places.created_at DESC" , :conditions => "places.created_at<'#{Date.today}'"
+  default_scope :include => [:categories, :city],
+                :order => "places.id DESC"
+                #:conditions => "places.created_at<'#{Date.today}'"
   serialize :contacts, Hash
 
   has_many :cattings, :as => :cattable
-  has_many :categories, :through => :cattings, :source => :category, :source_type => 'Category'
+  has_many :categories, :through => :cattings
   belongs_to :city
   has_many :parsetasks, :as => :item
 
