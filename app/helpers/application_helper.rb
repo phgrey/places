@@ -1,3 +1,5 @@
+# coding: utf-8
+
 module ApplicationHelper
   def city_lis selected_city
     City.all.map { |city|
@@ -33,5 +35,32 @@ module ApplicationHelper
     else
       url_for(options)
     end
+  end
+
+  def self.generate_seo_field category, city
+    seo = {title:'',desc:'',key:''}
+    if city.nil?
+      unless category.nil?
+        seo[:title] = I18n.t('seo_title_category').gsub('%r%',category.title)
+        seo[:desc] = I18n.t('seo_desc_category').gsub('%r%',category.title)
+        seo[:key] = I18n.t('seo_key_category').gsub('%r%',category.title)
+      else
+        seo[:title] = I18n.t('seo_title_static')
+        seo[:desc] = I18n.t('seo_desc_static')
+        seo[:key] = I18n.t('seo_key_static')
+      end
+    else
+      cases = Case.where(:source => city.title).first!
+      if category.nil?
+        seo[:title] = I18n.t('seo_title_city').gsub('%r%',cases.where)
+        seo[:desc] = I18n.t('seo_desc_city').gsub('%r%',cases.where)
+        seo[:key] = I18n.t('seo_key_city').gsub('%r2%',cases.where).gsub('%r%',cases.source)
+      else
+        seo[:title] = I18n.t('seo_title_cat_city').gsub('%city%',cases.where).gsub('%cat%',category.title)
+        seo[:desc] = I18n.t('seo_desc_cat_city').gsub('%city%',cases.where).gsub('%cat%',category.title)
+        seo[:key] = I18n.t('seo_key_cat_city').gsub('%city%',cases.where).gsub('%cat%',category.title)
+      end
+    end
+    return seo
   end
 end

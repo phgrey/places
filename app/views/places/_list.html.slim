@@ -12,7 +12,7 @@
             =' place.title
         hr.no-margin
         -place.contacts.each do |key, value|
-          p.no-margin  title=t('Contacts.'+key.to_s)
+          p.no-margin  title=CGI.escapeHTML(t('Contacts.'+key.to_s))
             i class={'icon-'+key.to_s}
             '
             =  value.to_s

@@ -1,5 +1,13 @@
 DashboardMy::Application.routes.draw do
 
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
+  #namespace :admin do
+  #  resources :cities
+  #end
+
   domain do
     root :to => 'cities#index'
     match '*caturlpath' => 'categories#show', :as => :category,

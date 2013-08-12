@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   #before_filter :miniprofiler unless Rails.env == 'production'
   #def default_url_options(options={})
   #end
-
+  
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => I18n.t(exception.message)
   end
@@ -25,5 +25,6 @@ class ApplicationController < ActionController::Base
   def miniprofiler
     Rack::MiniProfiler.authorize_request
   end
+
 end
 

@@ -4,17 +4,16 @@ class City < ActiveRecord::Base
 
   friendly_id :title, :use => :slugged
 
-
-  attr_accessible :lang, :title, :slug
-
   has_many :cattings, :as => :cattable
   has_many :categories, :through => :cattings
   has_many :places
   has_one :text, :as => :item
   has_many :parsetasks, :as => :item
+  attr_accessible :lang, :title, :slug, :text_attributes
+  accepts_nested_attributes_for :text
 
   def in_city
-    Case.where(:source => title).pluck('"where"')[0] || title
+    Case.where(:source => title).pluck('d')[0] || title
   end
 
   #protected

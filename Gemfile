@@ -8,8 +8,8 @@ gem 'rails', '>= 3.2.2'
 #setting Postgres instead of MySQL
 #gem 'handlersocket'
 #gem 'thinking-sphinx', '>= 2.0.10'
-#gem 'mysql2'
-gem 'pg'
+gem 'mysql2'
+#gem 'pg'
 
 gem 'json'
 
@@ -78,7 +78,7 @@ gem 'slim-rails' , :group => 'development'
 
 #gem 'time_diff'
 
-gem 'will_paginate'
+gem 'will_paginate' ,'3.0.4'
 
 gem 'russian'
 
@@ -99,6 +99,9 @@ gem 'friendly_id'
 
 gem 'nokogiri'
 
+gem 'activeadmin'
+gem 'sass-rails'
+gem "meta_search",    '>= 1.1.0.pre'
 #gem 'handsock'
 # To use debugger
 
