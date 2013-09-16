@@ -40,16 +40,12 @@ gem 'jquery-rails'
 # gem 'jbuilder'
 
 # Use unicorn as the web server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
 
-gem 'thin'
-
-gem 'devise'
-
-gem 'simple_form'
+#gem 'simple_form'
 
 gem 'slim'
 #we will need this only for generators
@@ -65,15 +61,16 @@ gem 'will_paginate'
 
 gem 'russian'
 
-gem 'omniauth'
+#TODO: add when logging in will be used
+#gem 'devise'
+#gem 'omniauth'
+#gem 'omniauth-twitter'
+#gem 'omniauth-vkontakte'
+#gem 'omniauth-facebook'
+#gem 'omniauth-google-oauth2'
+#gem 'omniauth-github'
+#gem 'cancan'
 
-gem 'omniauth-twitter'
-gem 'omniauth-vkontakte'
-gem 'omniauth-facebook'
-gem 'omniauth-google-oauth2'
-gem 'omniauth-github'
-
-gem 'cancan'
 #nested categories
 gem 'awesome_nested_set'
 gem 'the_sortable_tree'

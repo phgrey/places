@@ -16,13 +16,4 @@ class CitiesController < ApplicationController
     @params = params
   end
 
-  def unikalizator
-    if params['text']
-      @old_text = params['text']
-      @text = UnikalizatorHelper::unikalizator_do_action params['text']
-    else
-      @old_text = ''
-      @text = ''
-    end
-  end
 end

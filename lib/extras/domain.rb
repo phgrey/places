@@ -2,7 +2,7 @@ module Domain
 
   class Match
     def matches?(request)
-      if request.subdomain.present? && request.subdomain != 'www'
+      if request.subdomain.present? && request.subdomain != 'www' && request.subdomain != 'myplaces'
         request.path_parameters[:city_id] = request.subdomain
       end
       dom = request.host.gsub Regexp.new('^'+request.subdomain+'\.'), ''
