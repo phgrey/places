@@ -18,7 +18,7 @@ development:
   host: ec2-107-21-107-194.compute-1.amazonaws.com
   port: 5432
 
-production:
+heroku:
   adapter: postgresql
   encoding: unicode
   pool: 5
@@ -28,7 +28,31 @@ production:
   host: ec2-107-21-107-194.compute-1.amazonaws.com
   port: 5432
 
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: places
+  username: adminclslxha
+  password: 6Yk6HZcxN_Vi
+  host:     <%=ENV['OPENSHIFT_POSTGRESQL_DB_HOST']%>
+  port:     <%=ENV['OPENSHIFT_POSTGRESQL_DB_PORT']%>
+
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-
+# openshift - mysql
+#MySQL 5.1 database added.  Please make note of these credentials:
+#       Root User: adminWRsjuJ9
+#   Root Password: aI_xG-YA7pq7
+#   Database Name: places
+#Connection URL: mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/
+#You can manage your new MySQL database by also embedding phpmyadmin-3.
+#The phpmyadmin username and password will be the same as the MySQL credentials above.
+# openshift postgres
+#PostgreSQL 9.2 database added.  Please make note of these credentials:
+#   Root User: adminclslxha
+#   Root Password: 6Yk6HZcxN_Vi
+#   Database Name: places
+#Connection URL: postgresql://$OPENSHIFT_POSTGRESQL_DB_HOST:$OPENSHIFT_POSTGRESQL_DB_PORT
