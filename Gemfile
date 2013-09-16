@@ -84,3 +84,5 @@ gem 'nokogiri'
 #gem 'handsock'
 # To use debugger
 
+# This version needs to be hardcoded for OpenShift compatibility
+#gem 'thor', '= 0.14.6'
