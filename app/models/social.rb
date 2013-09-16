@@ -1,5 +1,5 @@
 class Social < ActiveRecord::Base
-  attr_accessible :provider, :external_id, :user_id, :public
+  #attr_accessible :provider, :external_id, :user_id, :public
   belongs_to :user
 
   def self.find_for(type, access_token, user=nil)

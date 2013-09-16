@@ -5,7 +5,7 @@ class Category < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, :use => :slugged
 
-  attr_accessible :title, :parent_id, :slug, :lang
+  #attr_accessible :title, :parent_id, :slug, :lang
   has_many :cattings
   has_many :places, :through => :cattings, :source => :cattable, :source_type => 'Place'
   has_many :cities, :through => :cattings, :source => :cattable, :source_type => 'City'

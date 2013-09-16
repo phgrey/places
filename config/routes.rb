@@ -2,7 +2,7 @@ DashboardMy::Application.routes.draw do
 
   domain do
     root :to => 'cities#index'
-    match '*caturlpath' => 'categories#show', :as => :category,
+    get '*caturlpath' => 'categories#show', :as => :category,
           :format => false, :constraints => {:caturlpath => /[a-z0-9\-\/]+/}
   end
 

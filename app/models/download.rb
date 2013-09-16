@@ -1,6 +1,6 @@
 require 'open-uri'
 class Download < ActiveRecord::Base
-  attr_accessible :responce, :url
+  #attr_accessible :responce, :url
   belongs_to :parsetask
 
   def self.create_by_url url
