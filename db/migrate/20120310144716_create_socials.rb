@@ -5,7 +5,7 @@ class CreateSocials < ActiveRecord::Migration
       t.string :provider, :null => false
       t.decimal :external_id, :null => false
       t.string :rawdata
-      t.boolean :public, :null => false, :default => 1
+      t.boolean :public, :null => false, :default => true
       t.timestamps
     end
 
