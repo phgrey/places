@@ -8,12 +8,21 @@ class CitiesController < ApplicationController
 
   def index
     return show unless params[:city_id].nil?
-    @cities = City.limit(10).where(:lang => I18n.locale)
-    @cities2 = City.limit(10)
+    @cities = City.where(:lang => I18n.locale)
     render 'index'
   end
 
   def test
     @params = params
+  end
+
+  def unikalizator
+    if params['text']
+      @old_text = params['text']
+      @text = UnikalizatorHelper::unikalizator_do_action params['text']
+    else
+      @old_text = ''
+      @text = ''
+    end
   end
 end

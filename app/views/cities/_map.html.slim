@@ -1,0 +1,4 @@
+div id="map"
+  = render "area"
+  /= tag "object", {:data => path_to_image("ukraine.svg"),:id => "map_o", :type => "image/svg+xml",:height => 500, :width => 900}
+  object data=path_to_image("ukraine.svg") id="map_o" type="image/svg+xml" height=500 width=900

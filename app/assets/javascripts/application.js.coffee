@@ -28,6 +28,59 @@ jQuery ->
     isResizable: true
     })#.masonry 'reload'#this is working correctly for the first time for now
 
+#Working with the map
+jQuery(window).load ->
+  svgobject = document.getElementById('map_o')
+  svgdom = jQuery(svgobject.contentDocument);
+  jQuery("#polygon30",svgdom).css({'fill':'#d1caca'})
+  jQuery("#path90",svgdom).css({'fill':'#d1caca'})
+  jQuery("#path82",svgdom).css({'fill':'#d1caca'})
+  jQuery("#path60",svgdom).css({'fill':'#d1caca'})
+  svg_fill = '';
+  timeoutId = '';
+  jQuery("polygon", svgdom).click(
+    ->
+      goToCity($(this))
+  )
+  jQuery("path", svgdom).click(
+    ->
+      goToCity($(this))
+  )
+  jQuery("polygon", svgdom).hover(
+    ->
+      svg_fill =  $(this).css('fill')
+      id = $(this).attr('id');
+      $(this).css({'cursor':'pointer','fill':'#ffdf49'})
+      fade = ->
+          $('#area #'+id).fadeIn("slow");
+      timeoutId = setTimeout fade, 500
+    ->
+      clearTimeout(timeoutId);
+      id = $(this).attr('id');
+      $(this).css({'fill':svg_fill})
+      $('#area #'+id).fadeOut("fast");
+  )
+  jQuery("path", svgdom).hover(
+    ->
+      svg_fill =  $(this).css('fill')
+      id = $(this).attr('id');
+      $(this).css({'cursor':'pointer','fill':'#ffdf49'})
+      fade = ->
+        $('#area #'+id).fadeIn("slow");
+      timeoutId = setTimeout fade, 500
+    ->
+      clearTimeout(timeoutId);
+      id = $(this).attr('id');
+      $(this).css({'fill':svg_fill})
+      $('#area #'+id).fadeOut("fast");
+  )
+goToCity =(thiss) ->
+  id = thiss.attr('id');
+  window.location.href = $('#area #'+id).parent().attr('href');
+# end working with the map
+
+
+
 
 ### we will need this when tabs will be needed on forms
   $('fieldset.make-me-tabs').each (num)->

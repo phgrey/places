@@ -9,6 +9,7 @@ en:
   Guest: Guest
   Tags: "Tags"
   Home: "Home"
+  Main_page: Ukraine's place
   Search: "Search"
   Tag_w_name: 'Tag "%{name}"'
   Search_w_name: 'Search "%{name}"'
@@ -30,4 +31,21 @@ en:
         description: "Description"
         hours: 'Hours'
         tag_list: 'Tags'
+  in_Ukraine: "in Ukraine"
+  business_directory: "business_directory"
+  catalogue_companies_Ukraine: "catalogue of companies of Ukraine"
+  Business_companies_in_Ukraine: "Business directory of businesses and companies in Ukraine"
+  Directory: "Directory"
+  seo_title_category: "%r% in Ukraine, business directory %r%, catalog companies in Ukraine"
+  seo_desc_category: "Business directory of businesses and companies in Ukraine. Catalog %r% in Ukraine, business directory %r% in Ukraine, business directory %r% in Ukraine"
+  seo_key_category: "%r% , Ukrainian companies, companies in Ukraine, %r% in Ukraine, Ukrainian business directory, catalog companies in Ukraine, Ukrainian Business Directory, an online directory of businesses and companies in Ukraine"
+  seo_title_city: "Enterprises %r%. Company %r%. Directory of enterprises and companies %r%"
+  seo_desc_city: "Business directory of businesses and companies in the %r%. Companies in %r%, business directory in %r%, the organization in %r%"
+  seo_key_city: " %r%, enterprise %r2%, of %r2%, business directory %r2%, catalog companies %r2%, Business Directory %r2%, online business directory of companies and %r2%"
+  seo_title_cat_city: "%cat% %city% | Business directory %city% - contacts, information, website, products and services"
+  seo_desc_cat_city: "%cat% %city% | Directory of enterprises and companies %city% online, as well as effective advertising for your business."
+  seo_key_cat_city: " %cat%, business directory %city%, catalog companies %city%, business directory %city%, the list of companies %city%, the list of companies %city%, the list of firms %city%, the list of companies %city%, the list of companies %city%, list of companies %city% "
+  seo_title_static: "Companies of Ukraine. Enterprises. Catalogue of enterprises and companies of Ukraine"
+  seo_desc_static: "Catalogue of enterprises, organizations and companies in Ukraine."
+  seo_key_static: "Enterprises, of Ukraine, Ukrainian business directory, catalog companies in Ukraine, business directory of Ukraine Business Directory of Ukraine, the online directory of businesses and companies in Ukraine"
 

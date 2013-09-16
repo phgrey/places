@@ -3,4 +3,4 @@ h1 =@name
   .row-fluid
     = @city.text.text
 .row-fluid.masonry.city-tree
-  = just_tree(@city.categories, render_module: CityRenderTreeHelper, city: @city)
+  = just_tree(@city.categories, {render_module: CityRenderTreeHelper, city: @city})

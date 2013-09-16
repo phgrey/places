@@ -1,0 +1,4 @@
+div id="links"
+  p
+    - @cities.each do |city|
+      ='link_to city.title, complicated_url(:city_id => city.slug)
