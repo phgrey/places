@@ -2,8 +2,8 @@ class Category < ActiveRecord::Base
   acts_as_nested_set
   only_current_language
 
-  extend FriendlyId
-  friendly_id :title, :use => :slugged
+  #extend FriendlyId
+  #friendly_id :title, :use => :slugged
 
   #attr_accessible :title, :parent_id, :slug, :lang
   has_many :cattings
