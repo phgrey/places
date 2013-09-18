@@ -10,9 +10,7 @@ gem 'rails', '>= 3.2.2'
 #setting Postgres instead of MySQL
 #gem 'handlersocket'
 #gem 'thinking-sphinx', '>= 2.0.10'
-#gem 'mysql2'
-gem 'pg'
-#gem 'mysql2', group: :development
+gem 'mysql2'
 
 gem 'json'
 

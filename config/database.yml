@@ -9,14 +9,12 @@
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 development:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
+  adapter: mysql2
+  encoding: utf8
   database: places
-  username: adminclslxha
-  password: 6Yk6HZcxN_Vi
-  host:     <%=ENV['OPENSHIFT_POSTGRESQL_DB_HOST']%>
-  port:     <%=ENV['OPENSHIFT_POSTGRESQL_DB_PORT']%>#
+  username: root
+  password: root
+#
 #heroku:
 #  adapter: postgresql
 #  encoding: unicode
@@ -26,17 +24,25 @@ development:
 #  password: zgNCf77Xer3PwLy9JnQq-HTYQL
 #  host: ec2-107-21-107-194.compute-1.amazonaws.com
 #  port: 5432
-
+#
+#openshift-pg:
+#  adapter: postgresql
+#  encoding: unicode
+#  pool: 5
+#  database: places
+#  username: adminclslxha
+#  password: 6Yk6HZcxN_Vi
+#  host:     <%=ENV['OPENSHIFT_POSTGRESQL_DB_HOST']%>
+#  port:     <%=ENV['OPENSHIFT_POSTGRESQL_DB_PORT']%>
 
 production:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
+  adapter: mysql2
+  encoding: utf8
   database: places
-  username: adminclslxha
-  password: 6Yk6HZcxN_Vi
-  host:     <%=ENV['OPENSHIFT_POSTGRESQL_DB_HOST']%>
-  port:     <%=ENV['OPENSHIFT_POSTGRESQL_DB_PORT']%>
+  username: admin5eE68pz
+  password: ztLNVTc_vZuP
+  host:     <%=ENV['OPENSHIFT_MYSQL_DB_HOST']%>
+  port:     <%=ENV['OPENSHIFT_MYSQL_DB_PORT']%>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
