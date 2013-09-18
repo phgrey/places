@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   has_many :socials
   accepts_nested_attributes_for :socials, :allow_destroy => true
 
-  has_many :texts, :foreign_key => 'item_id', :conditions => {:item_type => 'User'}, :inverse_of => :user
+  has_many :texts, :as => :item, :inverse_of => :user
   accepts_nested_attributes_for :texts
 
   def init

@@ -6,7 +6,6 @@ class Text < ActiveRecord::Base
   validates :item_type, :inclusion => {:in => %w(Offer Task User City)}
 
   belongs_to :user, :polymorphic => true, :inverse_of => :texts
-  belongs_to :item, :polymorphic => true
   def self.new_for_each_locale(item_type)
     I18n.available_locales.map {|loc|
       new(:lang => loc.to_s, :item_type => item_type)

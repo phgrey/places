@@ -19,6 +19,7 @@ DashboardMy::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
+  config.eager_load = true
 
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
