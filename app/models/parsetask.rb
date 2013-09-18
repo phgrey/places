@@ -33,7 +33,7 @@ class Parsetask < ActiveRecord::Base
     items_found.each{|item_data|
       params = {:path => item_data[:path], :lang =>lang, :source => source}
 
-      if( (existed = self.class.first(:conditions => params)))
+      if( (existed = self.class.where(params).first))
         params[:item_id] = existed.item_id
         params[:item_type] = existed.item_type
         params[:external_ids] = item_data[:external_ids]

@@ -41,7 +41,6 @@ GEM
     diff-lcs (1.2.4)
     erubis (2.7.0)
     execjs (2.0.1)
-    friendly_id (4.0.10)
     hike (1.2.3)
     i18n (0.6.5)
     jquery-rails (3.0.4)
@@ -62,6 +61,7 @@ GEM
     mini_portile (0.5.1)
     minitest (4.7.5)
     multi_json (1.8.0)
+    mysql2 (0.3.12b6)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     pg (0.16.0)
@@ -155,10 +155,10 @@ PLATFORMS
 DEPENDENCIES
   awesome_nested_set
   coffee-rails
-  friendly_id
   jquery-rails
   json
   less-rails
+  mysql2
   nokogiri
   pg
   rack-mini-profiler

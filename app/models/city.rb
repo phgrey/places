@@ -1,8 +1,8 @@
 class City < ActiveRecord::Base
-  extend FriendlyId
+  #extend FriendlyId
   only_current_language
 
-  friendly_id :title, :use => :slugged
+  #friendly_id :title, :use => :slugged
 
   has_many :cattings, :as => :cattable
   has_many :categories, :through => :cattings

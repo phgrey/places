@@ -135,9 +135,7 @@ class Parse::Mapia < Parsetask
   end
 
   def save_simple(item, params = {})
-    params = params.merge({:title =>  item[:title], :lang =>lang})
-    get_child_type.unscoped.where(params).first ||
-      get_child_type.create(params)
+    get_child_type.unscoped.find_or_create_by params.merge({:title =>  item[:title], :lang =>lang})
   end
   alias_method :save_city_by_main, :save_simple
   alias_method :save_category_by_city, :save_simple

@@ -31,6 +31,7 @@ group :test, :development do
 #needed by RubyMine to run specs http://youtrack.jetbrains.com/issue/RUBY-12632
   gem 'rspec', :require => false
   gem 'rack-mini-profiler'
+  gem 'mysql2'
 end
 
 gem 'jquery-rails'
@@ -77,7 +78,7 @@ gem 'russian'
 gem 'awesome_nested_set'
 gem 'the_sortable_tree'
 
-gem 'friendly_id'
+#gem 'friendly_id'
 
 gem 'nokogiri'
 
