@@ -12,6 +12,7 @@ gem 'rails', '>= 3.2.2'
 #gem 'thinking-sphinx', '>= 2.0.10'
 #gem 'mysql2'
 gem 'pg'
+gem 'mysql2', group: :development
 
 gem 'json'
 
@@ -31,7 +32,6 @@ group :test, :development do
 #needed by RubyMine to run specs http://youtrack.jetbrains.com/issue/RUBY-12632
   gem 'rspec', :require => false
   gem 'rack-mini-profiler'
-  gem 'mysql2'
 end
 
 gem 'jquery-rails'

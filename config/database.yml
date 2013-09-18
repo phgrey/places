@@ -8,22 +8,22 @@
 #
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
-development:
-  adapter: mysql2
-  encoding: utf8
-  database: places
-  username: root
-  password: root
-
-heroku:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  database: dcm4k8ivdl6hmq
-  username: ohgyhfnjwpgtuu
-  password: zgNCf77Xer3PwLy9JnQq-HTYQL
-  host: ec2-107-21-107-194.compute-1.amazonaws.com
-  port: 5432
+#development:
+#  adapter: mysql2
+#  encoding: utf8
+#  database: places
+#  username: root
+#  password: root
+#
+#heroku:
+#  adapter: postgresql
+#  encoding: unicode
+#  pool: 5
+#  database: dcm4k8ivdl6hmq
+#  username: ohgyhfnjwpgtuu
+#  password: zgNCf77Xer3PwLy9JnQq-HTYQL
+#  host: ec2-107-21-107-194.compute-1.amazonaws.com
+#  port: 5432
 
 
 production:
